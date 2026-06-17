@@ -169,7 +169,19 @@ const App = {
         e.preventDefault();
         const targetId = link.getAttribute('href').substring(1);
         const el = document.getElementById(targetId);
-        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!el) return;
+
+        // 移除其他标题和目录的高亮
+        document.querySelectorAll('.subsection-heading').forEach(h => h.classList.remove('active'));
+        document.querySelectorAll('.toc-list a').forEach(a => a.classList.remove('active'));
+
+        // 给当前跳转目标和左侧目录添加高亮
+        if (el.classList.contains('subsection-heading')) {
+          el.classList.add('active');
+        }
+        link.classList.add('active');
+
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   },

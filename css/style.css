@@ -27,7 +27,7 @@ body {
 
 /* ===== 左侧边栏 - 与截图一致 ===== */
 .sidebar {
-  width: 220px;
+  width: 280px;
   flex-shrink: 0;
   padding: 24px 16px 40px 20px;
   border-right: 1px solid #eaecf0;
@@ -36,6 +36,12 @@ body {
   height: 100vh;
   overflow-y: auto;
   background: #ffffff;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+  display: none;
 }
 
 /* 左上角柯南头像 */
@@ -62,26 +68,32 @@ body {
 
 /* 目录列表 - 纯文本编号，无折叠 */
 .toc-list {
-  font-size: 13px;
+  font-size: 15px;
 }
 
 .toc-item {
   line-height: 2;
+  white-space: nowrap;
 }
 
 .toc-item a {
-  color: #0645ad;
+  color: #000000;
   text-decoration: none;
 }
 
 .toc-item a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
-/* 一级目录（加粗） */
+.toc-item a.active {
+  padding: 2px 8px;
+  background: #e8f4fc;
+  border-radius: 4px;
+}
+
 .toc-item.level-1 > a {
   font-weight: 600;
-  color: #202122;
+  color: #000000;
 }
 
 /* 二级目录（缩进） */
@@ -133,11 +145,19 @@ body {
 
 /* ===== 子分组标题（主要角色、工藤家...） ===== */
 .subsection-heading {
-  font-size: 18px;
+  display: inline-block;
+  font-size: 22px;
   font-weight: 600;
   color: #000;
   margin: 28px 0 14px 0;
+  padding: 4px 0;
   scroll-margin-top: 80px;
+}
+
+.subsection-heading.active {
+  padding: 4px 12px;
+  background: #e8f4fc;
+  border-radius: 4px;
 }
 
 /* ===== 角色条目 - 完全匹配截图 ===== */
@@ -184,7 +204,7 @@ body {
 }
 
 .char-name-link {
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   color: #0645ad;
   text-decoration: none;
@@ -195,14 +215,14 @@ body {
 }
 
 .char-name-jp {
-  font-size: 14px;
-  color: #54595d;
+  font-size: 16px;
+  color: #000000;
   margin-left: 3px;
 }
 
 /* 声优行 */
 .char-voice-row {
-  font-size: 13px;
+  font-size: 15px;
   color: #54595d;
   margin-bottom: 6px;
 }
@@ -214,7 +234,7 @@ body {
 
 /* 简介文字 */
 .char-desc-row {
-  font-size: 14px;
+  font-size: 16px;
   color: #202122;
   line-height: 1.7;
 }
@@ -252,6 +272,10 @@ body {
     border-right: none;
     border-bottom: 1px solid #eaecf0;
     padding: 16px 20px;
+  }
+
+  .toc-item {
+    white-space: normal;
   }
 
   .sidebar-avatar img {

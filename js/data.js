@@ -86,7 +86,7 @@ const characterData = [
     factionKey: "main",
     nameZh: "毛利兰",
     nameJa: "毛利蘭",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "山崎和佳奈→冈村明美",
     avatar: "https://www.conanpedia.com/images/1/15/CHARACTER_LIST_%E6%AF%9B%E5%88%A9%E5%85%B0.png",
     desc: "16岁，名侦探柯南女主角，帝丹高中2年B班学生，空手道部主将兼关东空手道大赛冠军，毛利小五郎与妃英理的独女，工藤新一的青梅竹马兼女友。"
   },
@@ -104,7 +104,7 @@ const characterData = [
     factionKey: "main",
     nameZh: "阿笠博士",
     nameJa: "阿笠博士",
-    voiceActorJa: "绪方贤一、{{示亡号",
+    voiceActorJa: "绪方贤一、田中一成（少年）",
     avatar: "https://www.conanpedia.com/images/f/fc/CHARACTER_LIST_%E9%98%BF%E7%AC%A0%E5%8D%9A%E5%A3%AB.png",
     desc: "53岁，发明家，工藤新一的邻居，工藤优作与寺井黄之助的老相识，少年侦探团的协助者，芙莎绘·坎贝尔·木之下的初恋，自称“天才发明家”。"
   },
@@ -412,7 +412,7 @@ const characterData = [
     factionKey: "black_org",
     nameZh: "皮斯克",
     nameJa: "ピスコ",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "村松康雄",
     avatar: "https://www.conanpedia.com/images/8/85/CHARACTER_LIST_%E7%9A%AE%E6%96%AF%E5%85%8B.png",
     desc: "71岁，本名枡山宪三，前黑衣组织元老成员，汽车公司董事长，宫野夫妇的好友，被称为“财经界的大人物”，在杯户城市饭店执行暗杀任务时不慎暴露组织，而被琴酒处决。"
   },
@@ -479,7 +479,7 @@ const characterData = [
     factionKey: "fbi",
     nameZh: "詹姆斯·布莱克",
     nameJa: "ジェイムズ·ブラック",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "家弓家正→土师孝也",
     avatar: "https://www.conanpedia.com/images/5/56/CHARACTER_LIST_%E8%A9%B9%E5%A7%86%E6%96%AF%C2%B7%E5%B8%83%E8%8E%B1%E5%85%8B.png",
     desc: "FBI高级探员，赤井秀一、茱蒂·斯泰琳和安德雷·卡迈尔的上级。"
   },
@@ -488,7 +488,7 @@ const characterData = [
     factionKey: "fbi",
     nameZh: "茱蒂·斯泰琳",
     nameJa: "ジョディ·スターリング",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "一城美由希、冬马由美（幼年）",
     avatar: "https://www.conanpedia.com/images/4/49/%E8%8C%B1%E8%92%82%C2%B7%E6%96%AF%E6%B3%B0%E7%90%B3.png",
     desc: "28岁，化名茱蒂·圣提米利翁，FBI探员，前帝丹高中英语老师，詹姆斯·布莱克的下属，赤井秀一的前女友兼同事，安德雷·卡迈尔的同事，毛利兰和铃木园子的老师，贝尔摩德的仇人。"
   },
@@ -497,7 +497,7 @@ const characterData = [
     factionKey: "fbi",
     nameZh: "安德雷·卡迈尔",
     nameJa: "アンドレ·キャメル",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "梁田清之→乃村健次",
     avatar: "https://www.conanpedia.com/images/e/e5/CHARACTER_LIST_%E5%AE%89%E5%BE%B7%E9%9B%B7%C2%B7%E5%8D%A1%E8%BF%88%E5%B0%94.png",
     desc: "28岁，FBI探员，詹姆斯·布莱克的下属，赤井秀一和茱蒂·斯泰琳的同事。"
   },
@@ -541,7 +541,7 @@ const characterData = [
     factionKey: "mi6",
     nameZh: "世良玛丽",
     nameJa: "世良メアリー",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "田中敦子→本田贵子",
     avatar: "https://www.conanpedia.com/images/0/01/CHARACTER_LIST_%E8%B5%A4%E4%BA%95%E7%8E%9B%E4%B8%BD.png",
     desc: "约53岁，曾姓赤井，外号领域外的妹妹，MI6特工，宫野艾莲娜的姐姐，赤井务武的妻子，赤井秀一、羽田秀吉与世良真纯的母亲，几个月前在伦敦被假扮务武的贝尔摩德灌药变小，现阶段与世良返回日本试探柯南并争夺解药。"
   },
@@ -563,7 +563,7 @@ const characterData = [
     factionKey: "tokyo_exec",
     nameZh: "松本清长",
     nameJa: "松本清長",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "加藤精三",
     avatar: "https://www.conanpedia.com/images/a/a4/%E6%9D%BE%E6%9C%AC%E6%B8%85%E9%95%BF.png",
     desc: "54岁，前警视厅刑事部搜查一课管理官，警衔为警视，松本小百合的父亲，目暮十三的前上级，现阶段升至警视正。"
   },
@@ -594,7 +594,7 @@ const characterData = [
     factionKey: "tokyo_s1",
     nameZh: "白鸟任三郎",
     nameJa: "白鳥任三郎",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "盐泽兼人→井上和彦、本田贵子（少年）",
     avatar: "https://www.conanpedia.com/images/f/f2/%E7%99%BD%E9%B8%9F%E4%BB%BB%E4%B8%89%E9%83%8E.png",
     desc: "约28岁，警视厅刑事部搜查一课强行犯搜查三系刑事，警衔为警部，职业组出身，绫小路文麿的警校同期，目暮十三的同事，小林澄子的青梅竹马兼男友。"
   },
@@ -652,7 +652,7 @@ const characterData = [
     factionKey: "tokyo_s2",
     nameZh: "茶木神太郎",
     nameJa: "茶木神太郎",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "田中信夫",
     avatar: "https://www.conanpedia.com/images/4/44/%E8%8C%B6%E6%9C%A8%E7%A5%9E%E5%A4%AA%E9%83%8E.png",
     desc: "49岁，警视厅刑事部搜查二课警视，中森银三的上级，以逮捕怪盗基德为终极目标。"
   },
@@ -661,7 +661,7 @@ const characterData = [
     factionKey: "tokyo_s2",
     nameZh: "中森银三",
     nameJa: "中森銀三",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "石冢运昇→石井康嗣",
     avatar: "https://www.conanpedia.com/images/b/bd/%E4%B8%AD%E6%A3%AE%E9%93%B6%E4%B8%89.png",
     desc: "42岁，警视厅刑事部搜查二课智能犯搜查系警部，茶木神太郎的下属，中森碧子的丈夫，中森青子的父亲，铃木次郎吉的合作伙伴，两代怪盗基德的对手。<br>来自《魔术快斗》。"
   },
@@ -674,7 +674,7 @@ const characterData = [
     factionKey: "tokyo_s3",
     nameZh: "百濑",
     nameJa: "百瀬",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "盐屋浩三",
     avatar: "https://www.conanpedia.com/images/7/7b/%E7%99%BE%E6%BF%91.png",
     desc: "警视厅刑事部搜查三课警部，主管一般盗窃案。"
   },
@@ -687,7 +687,7 @@ const characterData = [
     factionKey: "tokyo_forensic",
     nameZh: "登米",
     nameJa: "トメ",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "中岛聪彦、卷岛直树（临时）、长嶝高士（临时）",
     avatar: "https://www.conanpedia.com/images/2/23/CHARACTER_LIST_%E7%99%BB%E7%B1%B3.png",
     desc: "警视厅刑事部鉴识课鉴识官，负责验尸与收集案发现场的痕迹。"
   },
@@ -770,7 +770,7 @@ const characterData = [
     factionKey: "osaka",
     nameZh: "远山银司郎",
     nameJa: "遠山銀司郎",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "佐古正人→小川真司→寺杣昌纪",
     avatar: "https://www.conanpedia.com/images/b/bc/%E8%BF%9C%E5%B1%B1%E9%93%B6%E5%8F%B8%E9%83%8E.png",
     desc: "大阪府警察本部刑事部长，警衔为警视长，远山和叶的父亲，服部平藏的下属、好友兼左右手。"
   },
@@ -871,7 +871,7 @@ const characterData = [
     factionKey: "kanagawa",
     nameZh: "萩原千速",
     nameJa: "萩原千速",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "田中敦子→泽城美雪",
     avatar: "https://www.conanpedia.com/images/8/82/%E8%90%A9%E5%8E%9F%E5%8D%83%E9%80%9F.png",
     desc: "31岁，神奈川县警察本部交通部第三交通机动队小队长，警衔为警部补，萩原研二的姐姐，横沟重悟的同事，松田阵平的初恋，大江忍的朋友。"
   },
@@ -933,7 +933,7 @@ const characterData = [
     factionKey: "police_academy",
     nameZh: "伊达航",
     nameJa: "伊達航",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "藤原启治→东地宏树",
     avatar: "https://www.conanpedia.com/images/a/a3/CHARACTER_LIST_%E4%BC%8A%E8%BE%BE%E8%88%AA.png",
     desc: "1年前去世，卒日为2月7日，去世时约28岁，前警视厅刑事部搜查一课强行犯搜查三系刑警，与降谷、松田、萩原、景光为同期毕业生兼好友，和后辈高木涉被称为“Wataru兄弟”，娜塔莉·来间的女友，因遭遇交通事故而殉职。"
   },
@@ -1043,7 +1043,7 @@ const characterData = [
     factionKey: "teitan_elem",
     nameZh: "植松龙司郎",
     nameJa: "植松竜司郎",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "清川元梦→辻亲八",
     avatar: "https://www.conanpedia.com/images/4/41/%E6%A4%8D%E6%9D%BE%E9%BE%99%E5%8F%B8%E9%83%8E.png",
     desc: "59岁，帝丹小学校长。"
   },
@@ -1101,7 +1101,7 @@ const characterData = [
     factionKey: "suzuki_group",
     nameZh: "铃木次郎吉",
     nameJa: "鈴木次郎吉",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "永井一郎→富田耕生→佐藤正治",
     avatar: "https://www.conanpedia.com/images/e/ea/%E9%93%83%E6%9C%A8%E6%AC%A1%E9%83%8E%E5%90%89.png",
     desc: "72岁，铃木财团顾问，铃木史郎的堂兄，铃木绫子与铃木园子的堂伯父，中森银三的合作伙伴，以擒拿怪盗基德为人生最重要的目标。"
   },
@@ -1110,7 +1110,7 @@ const characterData = [
     factionKey: "suzuki_group",
     nameZh: "铃木史郎",
     nameJa: "鈴木史郎",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "松冈文雄",
     avatar: "https://www.conanpedia.com/images/3/34/%E9%93%83%E6%9C%A8%E5%8F%B2%E9%83%8E.png",
     desc: "51岁，铃木财团董事长，铃木朋子的丈夫，铃木绫子与铃木园子的父亲。"
   },
@@ -1251,7 +1251,7 @@ const characterData = [
     factionKey: "soccer_player",
     nameZh: "赤木英雄",
     nameJa: "赤木英雄",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "辻谷耕史",
     avatar: "https://www.conanpedia.com/images/3/3c/CHARACTER_%E8%B5%A4%E6%9C%A8%E8%8B%B1%E9%9B%84_1.png",
     desc: "19岁，米花高中毕业生，东京SPIRITS队前锋，队内号码为11，赤木守的哥哥，上村直树的队友兼同学，侦探团三人的偶像。"
   },
@@ -1398,7 +1398,7 @@ const characterData = [
     factionKey: "celebrity",
     nameZh: "芙莎绘·坎贝尔·木之下",
     nameJa: "フサエ·キャンベル·木之下",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "增山江威子、本多知惠子（幼年）",
     avatar: "https://www.conanpedia.com/images/d/da/%E8%8A%99%E8%8E%8E%E7%BB%98%C2%B7%E5%9D%8E%E8%B4%9D%E5%B0%94%C2%B7%E6%9C%A8%E4%B9%8B%E4%B8%8B.png",
     desc: "约51岁，芙莎绘品牌公司社长，国际知名时尚设计师，阿笠博士的初恋。"
   },
@@ -1474,7 +1474,7 @@ const characterData = [
     factionKey: "family_friend",
     nameZh: "寺井黄之助",
     nameJa: "寺井黄之助",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "肝付兼太、陶山章央（青年）",
     avatar: "https://www.conanpedia.com/images/b/bd/%E5%AF%BA%E4%BA%95%E9%BB%84%E4%B9%8B%E5%8A%A9.png",
     desc: "61岁，两代怪盗基德助手，台球酒吧老板，黑羽盗一生前的魔术助手，阿笠博士的老相识。<br>来自《魔术快斗》。"
   },
@@ -1510,7 +1510,7 @@ const characterData = [
     factionKey: "family_friend",
     nameZh: "山村美纱绘",
     nameJa: "山村ミサエ",
-    voiceActorJa: "古川登志夫→{{示亡号",
+    voiceActorJa: "古川登志夫→堀绚子",
     avatar: "https://www.conanpedia.com/images/6/66/%E5%B1%B1%E6%9D%91%E7%BE%8E%E7%BA%B1%E7%BB%98.png",
     desc: "85岁，山村操的奶奶，家乡在鸟取县八头町。"
   },
@@ -1564,7 +1564,7 @@ const characterData = [
     factionKey: "family_friend",
     nameZh: "石川元气",
     nameJa: "石川元気",
-    voiceActorJa: "{{示亡号",
+    voiceActorJa: "松野太纪→三矢雄二",
     avatar: "https://www.conanpedia.com/images/e/e5/%E7%9F%B3%E5%B7%9D%E5%85%83%E6%B0%94_%E5%8D%A1%E7%89%87%E5%9B%BE.png",
     desc: "25岁，出租车司机，毛利小五郎的友人兼爱慕者，江户川柯南的友人。<br>"
   },
