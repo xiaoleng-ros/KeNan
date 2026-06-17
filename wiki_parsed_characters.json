@@ -1,0 +1,962 @@
+[
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "江户川柯南",
+    "nameJa": "江戸川コナン"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "工藤新一",
+    "nameJa": "工藤新一"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "毛利兰",
+    "nameJa": "毛利蘭"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "毛利小五郎",
+    "nameJa": "毛利小五郎"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "阿笠博士",
+    "nameJa": "阿笠博士"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "灰原哀",
+    "nameJa": "灰原哀"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "吉田步美",
+    "nameJa": "吉田歩美"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "圆谷光彦",
+    "nameJa": "円谷光彦"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "小岛元太",
+    "nameJa": "小嶋元太"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "铃木园子",
+    "nameJa": "鈴木園子"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "服部平次",
+    "nameJa": "服部平次"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "远山和叶",
+    "nameJa": "遠山和葉"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "世良真纯",
+    "nameJa": "世良真純"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "赤井秀一",
+    "nameJa": "赤井秀一"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "安室透",
+    "nameJa": "安室透"
+  },
+  {
+    "sectionIndex": 2,
+    "sectionTitle": "主要角色",
+    "nameZh": "怪盗基德",
+    "nameJa": "怪盗キッド"
+  },
+  {
+    "sectionIndex": 3,
+    "sectionTitle": "工藤家",
+    "nameZh": "工藤优作",
+    "nameJa": "工藤優作"
+  },
+  {
+    "sectionIndex": 3,
+    "sectionTitle": "工藤家",
+    "nameZh": "工藤有希子",
+    "nameJa": "工藤有希子"
+  },
+  {
+    "sectionIndex": 3,
+    "sectionTitle": "工藤家",
+    "nameZh": "冲矢昴",
+    "nameJa": "沖矢昴"
+  },
+  {
+    "sectionIndex": 4,
+    "sectionTitle": "妃法律事务所",
+    "nameZh": "妃英理",
+    "nameJa": "妃英理"
+  },
+  {
+    "sectionIndex": 4,
+    "sectionTitle": "妃法律事务所",
+    "nameZh": "栗山绿",
+    "nameJa": "栗山緑"
+  },
+  {
+    "sectionIndex": 5,
+    "sectionTitle": "波洛咖啡厅",
+    "nameZh": "榎本梓",
+    "nameJa": "榎本梓"
+  },
+  {
+    "sectionIndex": 6,
+    "sectionTitle": "伊吕波寿司店",
+    "nameZh": "胁田兼则",
+    "nameJa": "脇田兼則"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "乌丸莲耶",
+    "nameJa": "烏丸蓮耶"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "朗姆",
+    "nameJa": "ラム"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "琴酒",
+    "nameJa": "ジン"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "伏特加",
+    "nameJa": "ウォッカ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "贝尔摩德",
+    "nameJa": "ベルモット"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "基安蒂",
+    "nameJa": "キャンティ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "科恩",
+    "nameJa": "コルン"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "宫野厚司",
+    "nameJa": "宮野厚司"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "宫野艾莲娜",
+    "nameJa": "宮野エレーナ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "宫野明美",
+    "nameJa": "宮野明美"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "宫野志保",
+    "nameJa": "宮野志保"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "火伤赤井秀一",
+    "nameJa": "火傷の赤井秀一"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "龙舌兰",
+    "nameJa": "テキーラ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "皮斯克",
+    "nameJa": "ピスコ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "卡尔瓦多斯",
+    "nameJa": "カルバドス"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "爱尔兰",
+    "nameJa": "アイリッシュ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "库拉索",
+    "nameJa": "キュラソー"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "宾加",
+    "nameJa": "ピンガ"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "沼渊己一郎",
+    "nameJa": "沼淵己一郎"
+  },
+  {
+    "sectionIndex": 7,
+    "sectionTitle": "黑衣组织",
+    "nameZh": "楠田陆道",
+    "nameJa": "楠田陸道"
+  },
+  {
+    "sectionIndex": 8,
+    "sectionTitle": "FBI（美国联邦调查局）",
+    "nameZh": "詹姆斯·布莱克",
+    "nameJa": "ジェイムズ·ブラック"
+  },
+  {
+    "sectionIndex": 8,
+    "sectionTitle": "FBI（美国联邦调查局）",
+    "nameZh": "茱蒂·斯泰琳",
+    "nameJa": "ジョディ·スターリング"
+  },
+  {
+    "sectionIndex": 8,
+    "sectionTitle": "FBI（美国联邦调查局）",
+    "nameZh": "安德雷·卡迈尔",
+    "nameJa": "アンドレ·キャメル"
+  },
+  {
+    "sectionIndex": 9,
+    "sectionTitle": "CIA（美国中央情报局）",
+    "nameZh": "伊森·本堂",
+    "nameJa": "イーサン·本堂"
+  },
+  {
+    "sectionIndex": 9,
+    "sectionTitle": "CIA（美国中央情报局）",
+    "nameZh": "水无怜奈",
+    "nameJa": "水無怜奈"
+  },
+  {
+    "sectionIndex": 10,
+    "sectionTitle": "MI6（英国军事情报六局）",
+    "nameZh": "赤井务武",
+    "nameJa": "赤井務武"
+  },
+  {
+    "sectionIndex": 10,
+    "sectionTitle": "MI6（英国军事情报六局）",
+    "nameZh": "世良玛丽",
+    "nameJa": "世良メアリー"
+  },
+  {
+    "sectionIndex": 11,
+    "sectionTitle": "警视厅刑事部高层",
+    "nameZh": "小田切敏郎",
+    "nameJa": "小田切敏郎"
+  },
+  {
+    "sectionIndex": 11,
+    "sectionTitle": "警视厅刑事部高层",
+    "nameZh": "松本清长",
+    "nameJa": "松本清長"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "黑田兵卫",
+    "nameJa": "黒田兵衛"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "目暮十三",
+    "nameJa": "目暮十三"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "白鸟任三郎",
+    "nameJa": "白鳥任三郎"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "佐藤美和子",
+    "nameJa": "佐藤美和子"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "高木涉",
+    "nameJa": "高木渉"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "千叶和伸",
+    "nameJa": "千葉和伸"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "佐藤正义",
+    "nameJa": "佐藤正義"
+  },
+  {
+    "sectionIndex": 12,
+    "sectionTitle": "警视厅刑事部搜查一课",
+    "nameZh": "弓长",
+    "nameJa": "弓長"
+  },
+  {
+    "sectionIndex": 13,
+    "sectionTitle": "警视厅刑事部搜查二课",
+    "nameZh": "茶木神太郎",
+    "nameJa": "茶木神太郎"
+  },
+  {
+    "sectionIndex": 13,
+    "sectionTitle": "警视厅刑事部搜查二课",
+    "nameZh": "中森银三",
+    "nameJa": "中森銀三"
+  },
+  {
+    "sectionIndex": 14,
+    "sectionTitle": "警视厅刑事部搜查三课",
+    "nameZh": "百濑",
+    "nameJa": "百瀬"
+  },
+  {
+    "sectionIndex": 15,
+    "sectionTitle": "警视厅刑事部鉴识课",
+    "nameZh": "登米",
+    "nameJa": "トメ"
+  },
+  {
+    "sectionIndex": 16,
+    "sectionTitle": "警视厅交通部",
+    "nameZh": "宫本由美",
+    "nameJa": "宮本由美"
+  },
+  {
+    "sectionIndex": 16,
+    "sectionTitle": "警视厅交通部",
+    "nameZh": "三池苗子",
+    "nameJa": "三池苗子"
+  },
+  {
+    "sectionIndex": 17,
+    "sectionTitle": "警视厅公安部",
+    "nameZh": "风见裕也",
+    "nameJa": "風見裕也"
+  },
+  {
+    "sectionIndex": 18,
+    "sectionTitle": "警察厅",
+    "nameZh": "伊织无我",
+    "nameJa": "伊織無我"
+  },
+  {
+    "sectionIndex": 19,
+    "sectionTitle": "检察厅",
+    "nameZh": "九条玲子",
+    "nameJa": "九条玲子"
+  },
+  {
+    "sectionIndex": 20,
+    "sectionTitle": "大阪府警",
+    "nameZh": "服部平藏",
+    "nameJa": "服部平蔵"
+  },
+  {
+    "sectionIndex": 20,
+    "sectionTitle": "大阪府警",
+    "nameZh": "远山银司郎",
+    "nameJa": "遠山銀司郎"
+  },
+  {
+    "sectionIndex": 20,
+    "sectionTitle": "大阪府警",
+    "nameZh": "大泷悟郎",
+    "nameJa": "大滝悟郎"
+  },
+  {
+    "sectionIndex": 21,
+    "sectionTitle": "京都府警",
+    "nameZh": "绫小路文麿",
+    "nameJa": "綾小路文麿"
+  },
+  {
+    "sectionIndex": 22,
+    "sectionTitle": "长野县警",
+    "nameZh": "诸伏高明",
+    "nameJa": "諸伏高明"
+  },
+  {
+    "sectionIndex": 22,
+    "sectionTitle": "长野县警",
+    "nameZh": "大和敢助",
+    "nameJa": "大和敢助"
+  },
+  {
+    "sectionIndex": 22,
+    "sectionTitle": "长野县警",
+    "nameZh": "上原由衣",
+    "nameJa": "上原由衣"
+  },
+  {
+    "sectionIndex": 23,
+    "sectionTitle": "群马县警",
+    "nameZh": "山村操",
+    "nameJa": "山村ミサオ"
+  },
+  {
+    "sectionIndex": 24,
+    "sectionTitle": "静冈县警",
+    "nameZh": "横沟参悟",
+    "nameJa": "横溝参悟"
+  },
+  {
+    "sectionIndex": 25,
+    "sectionTitle": "神奈川县警",
+    "nameZh": "横沟重悟",
+    "nameJa": "横溝重悟"
+  },
+  {
+    "sectionIndex": 25,
+    "sectionTitle": "神奈川县警",
+    "nameZh": "萩原千速",
+    "nameJa": "萩原千速"
+  },
+  {
+    "sectionIndex": 26,
+    "sectionTitle": "北海道警",
+    "nameZh": "西村京兵",
+    "nameJa": "西村京兵"
+  },
+  {
+    "sectionIndex": 27,
+    "sectionTitle": "警视厅警察学校",
+    "nameZh": "鬼冢八藏",
+    "nameJa": "鬼塚八蔵"
+  },
+  {
+    "sectionIndex": 27,
+    "sectionTitle": "警视厅警察学校",
+    "nameZh": "诸伏景光",
+    "nameJa": "諸伏景光"
+  },
+  {
+    "sectionIndex": 27,
+    "sectionTitle": "警视厅警察学校",
+    "nameZh": "松田阵平",
+    "nameJa": "松田阵平"
+  },
+  {
+    "sectionIndex": 27,
+    "sectionTitle": "警视厅警察学校",
+    "nameZh": "萩原研二",
+    "nameJa": "萩原研二"
+  },
+  {
+    "sectionIndex": 27,
+    "sectionTitle": "警视厅警察学校",
+    "nameZh": "伊达航",
+    "nameJa": "伊達航"
+  },
+  {
+    "sectionIndex": 28,
+    "sectionTitle": "帝丹高中",
+    "nameZh": "冢本数美",
+    "nameJa": "塚本数美"
+  },
+  {
+    "sectionIndex": 28,
+    "sectionTitle": "帝丹高中",
+    "nameZh": "本堂瑛祐",
+    "nameJa": "本堂瑛祐"
+  },
+  {
+    "sectionIndex": 28,
+    "sectionTitle": "帝丹高中",
+    "nameZh": "中道",
+    "nameJa": "中道"
+  },
+  {
+    "sectionIndex": 29,
+    "sectionTitle": "杯户高中",
+    "nameZh": "京极真",
+    "nameJa": "京極真"
+  },
+  {
+    "sectionIndex": 30,
+    "sectionTitle": "江古田高中",
+    "nameZh": "黑羽快斗",
+    "nameJa": "黒羽快斗"
+  },
+  {
+    "sectionIndex": 30,
+    "sectionTitle": "江古田高中",
+    "nameZh": "中森青子",
+    "nameJa": "中森青子"
+  },
+  {
+    "sectionIndex": 30,
+    "sectionTitle": "江古田高中",
+    "nameZh": "白马探",
+    "nameJa": "白馬探"
+  },
+  {
+    "sectionIndex": 31,
+    "sectionTitle": "京都泉心高中",
+    "nameZh": "冲田总司",
+    "nameJa": "沖田総司"
+  },
+  {
+    "sectionIndex": 31,
+    "sectionTitle": "京都泉心高中",
+    "nameZh": "大冈红叶",
+    "nameJa": "大岡紅葉"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "植松龙司郎",
+    "nameJa": "植松竜司郎"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "小林澄子",
+    "nameJa": "小林澄子"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "若狭留美",
+    "nameJa": "若狭留美"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "东尾玛利亚",
+    "nameJa": "東尾マリア"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "坂本琢马",
+    "nameJa": "坂本琢馬"
+  },
+  {
+    "sectionIndex": 32,
+    "sectionTitle": "帝丹小学",
+    "nameZh": "伊东惠",
+    "nameJa": "伊東めぐみ"
+  },
+  {
+    "sectionIndex": 33,
+    "sectionTitle": "铃木财团",
+    "nameZh": "铃木次郎吉",
+    "nameJa": "鈴木次郎吉"
+  },
+  {
+    "sectionIndex": 33,
+    "sectionTitle": "铃木财团",
+    "nameZh": "铃木史郎",
+    "nameJa": "鈴木史郎"
+  },
+  {
+    "sectionIndex": 33,
+    "sectionTitle": "铃木财团",
+    "nameZh": "铃木朋子",
+    "nameJa": "鈴木朋子"
+  },
+  {
+    "sectionIndex": 33,
+    "sectionTitle": "铃木财团",
+    "nameZh": "铃木绫子",
+    "nameJa": "鈴木綾子"
+  },
+  {
+    "sectionIndex": 34,
+    "sectionTitle": "新出医院",
+    "nameZh": "新出智明",
+    "nameJa": "新出智明"
+  },
+  {
+    "sectionIndex": 35,
+    "sectionTitle": "小仓拉面店",
+    "nameZh": "小仓功雅",
+    "nameJa": "小倉功雅"
+  },
+  {
+    "sectionIndex": 35,
+    "sectionTitle": "小仓拉面店",
+    "nameZh": "大桥彩代",
+    "nameJa": "大橋彩代"
+  },
+  {
+    "sectionIndex": 36,
+    "sectionTitle": "玉木书店",
+    "nameZh": "玉木裕次郎",
+    "nameJa": "玉木裕次郎"
+  },
+  {
+    "sectionIndex": 36,
+    "sectionTitle": "玉木书店",
+    "nameZh": "玉木一朗",
+    "nameJa": "玉木一朗"
+  },
+  {
+    "sectionIndex": 36,
+    "sectionTitle": "玉木书店",
+    "nameZh": "吉川美知子",
+    "nameJa": "吉川美知子"
+  },
+  {
+    "sectionIndex": 37,
+    "sectionTitle": "金子珠宝店",
+    "nameZh": "金子圭太",
+    "nameJa": "金子圭太"
+  },
+  {
+    "sectionIndex": 38,
+    "sectionTitle": "将棋手",
+    "nameZh": "羽田浩司",
+    "nameJa": "羽田浩司"
+  },
+  {
+    "sectionIndex": 38,
+    "sectionTitle": "将棋手",
+    "nameZh": "羽田秀吉",
+    "nameJa": "羽田秀𠮷"
+  },
+  {
+    "sectionIndex": 38,
+    "sectionTitle": "将棋手",
+    "nameZh": "胜又力",
+    "nameJa": "勝又力"
+  },
+  {
+    "sectionIndex": 39,
+    "sectionTitle": "足球运动员",
+    "nameZh": "赤木英雄",
+    "nameJa": "赤木英雄"
+  },
+  {
+    "sectionIndex": 39,
+    "sectionTitle": "足球运动员",
+    "nameZh": "上村直树",
+    "nameJa": "上村直樹"
+  },
+  {
+    "sectionIndex": 39,
+    "sectionTitle": "足球运动员",
+    "nameZh": "比护隆佑",
+    "nameJa": "比護隆佑"
+  },
+  {
+    "sectionIndex": 39,
+    "sectionTitle": "足球运动员",
+    "nameZh": "真田贵大",
+    "nameJa": "真田貴大"
+  },
+  {
+    "sectionIndex": 40,
+    "sectionTitle": "魔术师",
+    "nameZh": "黑羽盗一",
+    "nameJa": "黒羽盗一"
+  },
+  {
+    "sectionIndex": 40,
+    "sectionTitle": "魔术师",
+    "nameZh": "第一代怪盗基德",
+    "nameJa": "初代怪盗キッド"
+  },
+  {
+    "sectionIndex": 40,
+    "sectionTitle": "魔术师",
+    "nameZh": "怪盗乌鸦",
+    "nameJa": "怪盗コルボー"
+  },
+  {
+    "sectionIndex": 40,
+    "sectionTitle": "魔术师",
+    "nameZh": "真田一三",
+    "nameJa": "真田一三"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "冲野洋子",
+    "nameJa": "沖野ヨーコ"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "剑崎修",
+    "nameJa": "剣崎修"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "岳野雪",
+    "nameJa": "岳野ユキ"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "伊东玉之助",
+    "nameJa": "伊東玉之助"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "片冈莲华",
+    "nameJa": "片岡れんげ"
+  },
+  {
+    "sectionIndex": 41,
+    "sectionTitle": "艺人",
+    "nameZh": "光本兵我",
+    "nameJa": "光本兵我"
+  },
+  {
+    "sectionIndex": 42,
+    "sectionTitle": "知名人士",
+    "nameZh": "板仓卓",
+    "nameJa": "板倉卓"
+  },
+  {
+    "sectionIndex": 42,
+    "sectionTitle": "知名人士",
+    "nameZh": "芙莎绘·坎贝尔·木之下",
+    "nameJa": "フサエ·キャンベル·木之下"
+  },
+  {
+    "sectionIndex": 42,
+    "sectionTitle": "知名人士",
+    "nameZh": "阿曼达·休斯",
+    "nameJa": "アマンダ·ヒューズ"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "山岸荣一",
+    "nameJa": "山岸栄一"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "吉田步美的母亲",
+    "nameJa": "吉田歩美の母親"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "江户川文代",
+    "nameJa": "江戸川文代"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "富泽雄三",
+    "nameJa": "富沢雄三"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "佐藤美和子的母亲",
+    "nameJa": "佐藤美和子の母親"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "目暮绿",
+    "nameJa": "目暮みどり"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "寺井黄之助",
+    "nameJa": "寺井黄之助"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "服部静华",
+    "nameJa": "服部静華"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "鸭井五十吉",
+    "nameJa": "鴨井五十吉"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "圆谷朝美",
+    "nameJa": "円谷朝美"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "山村美纱绘",
+    "nameJa": "山村ミサエ"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "小岛元次",
+    "nameJa": "小嶋元次"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "黑羽千影",
+    "nameJa": "黒羽千影"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "怪盗淑女",
+    "nameJa": "怪盗淑女"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "米原樱子",
+    "nameJa": "米原桜子"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "鬼丸猛",
+    "nameJa": "鬼丸猛"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "石川元气",
+    "nameJa": "石川元気"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "大井宏树",
+    "nameJa": "大井宏樹"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "大江忍",
+    "nameJa": "大江忍"
+  },
+  {
+    "sectionIndex": 43,
+    "sectionTitle": "亲属与友人",
+    "nameZh": "远山樱",
+    "nameJa": "遠山桜"
+  },
+  {
+    "sectionIndex": 44,
+    "sectionTitle": "宠物",
+    "nameZh": "小麿",
+    "nameJa": "マロ"
+  },
+  {
+    "sectionIndex": 44,
+    "sectionTitle": "宠物",
+    "nameZh": "鲁邦",
+    "nameJa": "ルパン"
+  },
+  {
+    "sectionIndex": 44,
+    "sectionTitle": "宠物",
+    "nameZh": "咕噜",
+    "nameJa": "ゴロ"
+  },
+  {
+    "sectionIndex": 44,
+    "sectionTitle": "宠物",
+    "nameZh": "大尉",
+    "nameJa": "大尉"
+  },
+  {
+    "sectionIndex": 45,
+    "sectionTitle": "虚构角色",
+    "nameZh": "假面超人",
+    "nameJa": "仮面ヤイバー"
+  },
+  {
+    "sectionIndex": 45,
+    "sectionTitle": "虚构角色",
+    "nameZh": "暗夜男爵",
+    "nameJa": "闇の男爵"
+  },
+  {
+    "sectionIndex": 45,
+    "sectionTitle": "虚构角色",
+    "nameZh": "哥美拉",
+    "nameJa": "ゴメラ"
+  },
+  {
+    "sectionIndex": 45,
+    "sectionTitle": "虚构角色",
+    "nameZh": "松田左文字",
+    "nameJa": "松田左文字"
+  }
+]

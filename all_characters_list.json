@@ -1,0 +1,802 @@
+[
+  {
+    "image": "江户川柯南.png",
+    "nameZh": "江户川柯南",
+    "nameJa": "江戸川コナン"
+  },
+  {
+    "image": "工藤新一.png",
+    "nameZh": "工藤新一",
+    "nameJa": "工藤新一"
+  },
+  {
+    "image": "CHARACTER LIST 毛利兰.png",
+    "nameZh": "毛利兰",
+    "nameJa": "毛利蘭"
+  },
+  {
+    "image": "CHARACTER LIST 毛利小五郎.png",
+    "nameZh": "毛利小五郎",
+    "nameJa": "毛利小五郎"
+  },
+  {
+    "image": "CHARACTER LIST 阿笠博士.png",
+    "nameZh": "阿笠博士",
+    "nameJa": "阿笠博士"
+  },
+  {
+    "image": "CHARACTER LIST 灰原哀.png",
+    "nameZh": "灰原哀",
+    "nameJa": "灰原哀"
+  },
+  {
+    "image": "CHARACTER LIST 吉田步美.png",
+    "nameZh": "吉田步美",
+    "nameJa": "吉田歩美"
+  },
+  {
+    "image": "CHARACTER LIST 圆谷光彦.png",
+    "nameZh": "圆谷光彦",
+    "nameJa": "円谷光彦"
+  },
+  {
+    "image": "CHARACTER LIST 小岛元太.png",
+    "nameZh": "小岛元太",
+    "nameJa": "小嶋元太"
+  },
+  {
+    "image": "CHARACTER LIST 铃木园子.png",
+    "nameZh": "铃木园子",
+    "nameJa": "鈴木園子"
+  },
+  {
+    "image": "CHARACTER LIST 服部平次.png",
+    "nameZh": "服部平次",
+    "nameJa": "服部平次"
+  },
+  {
+    "image": "远山和叶.png",
+    "nameZh": "远山和叶",
+    "nameJa": "遠山和葉"
+  },
+  {
+    "image": "CHARACTER LIST 世良真纯 1.png",
+    "nameZh": "世良真纯",
+    "nameJa": "世良真純"
+  },
+  {
+    "image": "CHARACTER LIST 赤井秀一 1.png",
+    "nameZh": "赤井秀一",
+    "nameJa": "赤井秀一"
+  },
+  {
+    "image": "CHARACTER LIST 降谷零.png",
+    "nameZh": "安室透",
+    "nameJa": "安室透"
+  },
+  {
+    "image": "CHARACTER LIST 怪盗基德.png",
+    "nameZh": "怪盗基德",
+    "nameJa": "怪盗キッド"
+  },
+  {
+    "image": "CHARACTER LIST 工藤优作.png",
+    "nameZh": "工藤优作",
+    "nameJa": "工藤優作"
+  },
+  {
+    "image": "工藤有希子.png",
+    "nameZh": "工藤有希子",
+    "nameJa": "工藤有希子"
+  },
+  {
+    "image": "CHARACTER LIST 冲矢昴.png",
+    "nameZh": "冲矢昴",
+    "nameJa": "沖矢昴"
+  },
+  {
+    "image": "妃英理.png",
+    "nameZh": "妃英理",
+    "nameJa": "妃英理"
+  },
+  {
+    "image": "CHARACTER LIST 栗山绿.png",
+    "nameZh": "栗山绿",
+    "nameJa": "栗山緑"
+  },
+  {
+    "image": "CHARACTER Enomoto Azusa.png",
+    "nameZh": "榎本梓",
+    "nameJa": "榎本梓"
+  },
+  {
+    "image": "CHARACTER LIST 胁田兼则.png",
+    "nameZh": "胁田兼则",
+    "nameJa": "脇田兼則"
+  },
+  {
+    "image": "CHARACTER LIST 乌丸莲耶.png",
+    "nameZh": "乌丸莲耶",
+    "nameJa": "烏丸蓮耶"
+  },
+  {
+    "image": "朗姆.png",
+    "nameZh": "朗姆",
+    "nameJa": "ラム"
+  },
+  {
+    "image": "CHARACTER LIST 琴酒.png",
+    "nameZh": "琴酒",
+    "nameJa": "ジン"
+  },
+  {
+    "image": "CHARACTER Vodka.png",
+    "nameZh": "伏特加",
+    "nameJa": "ウォッカ"
+  },
+  {
+    "image": "CHARACTER LIST 贝尔摩德.png",
+    "nameZh": "贝尔摩德",
+    "nameJa": "ベルモット"
+  },
+  {
+    "image": "CHARACTER LIST 基安蒂.png",
+    "nameZh": "基安蒂",
+    "nameJa": "キャンティ"
+  },
+  {
+    "image": "CHARACTER LIST 科恩.png",
+    "nameZh": "科恩",
+    "nameJa": "コルン"
+  },
+  {
+    "image": "CHARACTER LIST 宫野厚司.png",
+    "nameZh": "宫野厚司",
+    "nameJa": "宮野厚司"
+  },
+  {
+    "image": "CHARACTER LIST 宫野艾莲娜.png",
+    "nameZh": "宫野艾莲娜",
+    "nameJa": "宮野エレーナ"
+  },
+  {
+    "image": "CHARACTER LIST 宫野明美.png",
+    "nameZh": "宫野明美",
+    "nameJa": "宮野明美"
+  },
+  {
+    "image": "宫野志保1.png",
+    "nameZh": "宫野志保",
+    "nameJa": "宮野志保"
+  },
+  {
+    "image": "CHARACTER LIST 火伤赤井.png",
+    "nameZh": "火伤赤井秀一",
+    "nameJa": "火傷の赤井秀一"
+  },
+  {
+    "image": "龙舌兰.png",
+    "nameZh": "龙舌兰",
+    "nameJa": "テキーラ"
+  },
+  {
+    "image": "CHARACTER LIST 皮斯克.png",
+    "nameZh": "皮斯克",
+    "nameJa": "ピスコ"
+  },
+  {
+    "image": "CHARACTER LIST 卡尔瓦多斯.png",
+    "nameZh": "卡尔瓦多斯",
+    "nameJa": "カルバドス"
+  },
+  {
+    "image": "CHARACTER LIST 爱尔兰.png",
+    "nameZh": "爱尔兰",
+    "nameJa": "アイリッシュ"
+  },
+  {
+    "image": "库拉索.png",
+    "nameZh": "库拉索",
+    "nameJa": "キュラソー"
+  },
+  {
+    "image": "宾加.png",
+    "nameZh": "宾加",
+    "nameJa": "ピンガ"
+  },
+  {
+    "image": "沼渊己一郎.png",
+    "nameZh": "沼渊己一郎",
+    "nameJa": "沼淵己一郎"
+  },
+  {
+    "image": "CHARACTER LIST 楠田陆道.png",
+    "nameZh": "楠田陆道",
+    "nameJa": "楠田陸道"
+  },
+  {
+    "image": "CHARACTER LIST 詹姆斯·布莱克.png",
+    "nameZh": "詹姆斯·布莱克",
+    "nameJa": "ジェイムズ·ブラック"
+  },
+  {
+    "image": "茱蒂·斯泰琳.png",
+    "nameZh": "茱蒂·斯泰琳",
+    "nameJa": "ジョディ·スターリング"
+  },
+  {
+    "image": "CHARACTER LIST 安德雷·卡迈尔.png",
+    "nameZh": "安德雷·卡迈尔",
+    "nameJa": "アンドレ·キャメル"
+  },
+  {
+    "image": "CHARACTER LIST 伊森·本堂.png",
+    "nameZh": "伊森·本堂",
+    "nameJa": "イーサン·本堂"
+  },
+  {
+    "image": "CHARACTER LIST 水无怜奈.png",
+    "nameZh": "水无怜奈",
+    "nameJa": "水無怜奈"
+  },
+  {
+    "image": "CHARACTER LIST 赤井务武.png",
+    "nameZh": "赤井务武",
+    "nameJa": "赤井務武"
+  },
+  {
+    "image": "CHARACTER LIST 赤井玛丽.png",
+    "nameZh": "世良玛丽",
+    "nameJa": "世良メアリー"
+  },
+  {
+    "image": "CHARACTER LIST 小田切敏郎.png",
+    "nameZh": "小田切敏郎",
+    "nameJa": "小田切敏郎"
+  },
+  {
+    "image": "松本清长.png",
+    "nameZh": "松本清长",
+    "nameJa": "松本清長"
+  },
+  {
+    "image": "CHARACTER LIST 黑田兵卫.png",
+    "nameZh": "黑田兵卫",
+    "nameJa": "黒田兵衛"
+  },
+  {
+    "image": "CHARACTER LIST 目暮十三.png",
+    "nameZh": "目暮十三",
+    "nameJa": "目暮十三"
+  },
+  {
+    "image": "白鸟任三郎.png",
+    "nameZh": "白鸟任三郎",
+    "nameJa": "白鳥任三郎"
+  },
+  {
+    "image": "佐藤美和子.png",
+    "nameZh": "佐藤美和子",
+    "nameJa": "佐藤美和子"
+  },
+  {
+    "image": "CHARACTER LIST 高木涉.png",
+    "nameZh": "高木涉",
+    "nameJa": "高木渉"
+  },
+  {
+    "image": "CHARACTER LIST 千叶和伸.png",
+    "nameZh": "千叶和伸",
+    "nameJa": "千葉和伸"
+  },
+  {
+    "image": "佐藤正义.png",
+    "nameZh": "佐藤正义",
+    "nameJa": "佐藤正義"
+  },
+  {
+    "image": "CHARACTER LIST 弓长.png",
+    "nameZh": "弓长",
+    "nameJa": "弓長"
+  },
+  {
+    "image": "茶木神太郎.png",
+    "nameZh": "茶木神太郎",
+    "nameJa": "茶木神太郎"
+  },
+  {
+    "image": "中森银三.png",
+    "nameZh": "中森银三",
+    "nameJa": "中森銀三"
+  },
+  {
+    "image": "百濑.png",
+    "nameZh": "百濑",
+    "nameJa": "百瀬"
+  },
+  {
+    "image": "CHARACTER LIST 登米.png",
+    "nameZh": "登米",
+    "nameJa": "トメ"
+  },
+  {
+    "image": "CHARACTER LIST 宫本由美.png",
+    "nameZh": "宫本由美",
+    "nameJa": "宮本由美"
+  },
+  {
+    "image": "三池苗子 1.png",
+    "nameZh": "三池苗子",
+    "nameJa": "三池苗子"
+  },
+  {
+    "image": "CHARACTER LIST 风见裕也.png",
+    "nameZh": "风见裕也",
+    "nameJa": "風見裕也"
+  },
+  {
+    "image": "CHARACTER LIST 伊织无我.png",
+    "nameZh": "伊织无我",
+    "nameJa": "伊織無我"
+  },
+  {
+    "image": "CHARACTER LIST 九条玲子.png",
+    "nameZh": "九条玲子",
+    "nameJa": "九条玲子"
+  },
+  {
+    "image": "CHARACTER LIST 服部平藏.png",
+    "nameZh": "服部平藏",
+    "nameJa": "服部平蔵"
+  },
+  {
+    "image": "远山银司郎.png",
+    "nameZh": "远山银司郎",
+    "nameJa": "遠山銀司郎"
+  },
+  {
+    "image": "大泷悟郎.png",
+    "nameZh": "大泷悟郎",
+    "nameJa": "大滝悟郎"
+  },
+  {
+    "image": "绫小路文麿.png",
+    "nameZh": "绫小路文麿",
+    "nameJa": "綾小路文麿"
+  },
+  {
+    "image": "CHARACTER LIST 诸伏高明.png",
+    "nameZh": "诸伏高明",
+    "nameJa": "諸伏高明"
+  },
+  {
+    "image": "CHARACTER LIST 大和敢助.png",
+    "nameZh": "大和敢助",
+    "nameJa": "大和敢助"
+  },
+  {
+    "image": "上原由衣.png",
+    "nameZh": "上原由衣",
+    "nameJa": "上原由衣"
+  },
+  {
+    "image": "CHARACTER LIST 山村操.png",
+    "nameZh": "山村操",
+    "nameJa": "山村ミサオ"
+  },
+  {
+    "image": "横沟参悟.png",
+    "nameZh": "横沟参悟",
+    "nameJa": "横溝参悟"
+  },
+  {
+    "image": "横沟重悟.png",
+    "nameZh": "横沟重悟",
+    "nameJa": "横溝重悟"
+  },
+  {
+    "image": "萩原千速.png",
+    "nameZh": "萩原千速",
+    "nameJa": "萩原千速"
+  },
+  {
+    "image": "西村京兵.png",
+    "nameZh": "西村京兵",
+    "nameJa": "西村京兵"
+  },
+  {
+    "image": "CHARACTER LIST 鬼冢八藏.png",
+    "nameZh": "鬼冢八藏",
+    "nameJa": "鬼塚八蔵"
+  },
+  {
+    "image": "CHARACTER LIST 诸伏景光.png",
+    "nameZh": "诸伏景光",
+    "nameJa": "諸伏景光"
+  },
+  {
+    "image": "CHARACTER LIST 松田阵平.png",
+    "nameZh": "松田阵平",
+    "nameJa": "松田阵平"
+  },
+  {
+    "image": "CHARACTER LIST 萩原研二.png",
+    "nameZh": "萩原研二",
+    "nameJa": "萩原研二"
+  },
+  {
+    "image": "CHARACTER LIST 伊达航.png",
+    "nameZh": "伊达航",
+    "nameJa": "伊達航"
+  },
+  {
+    "image": "冢本数美.png",
+    "nameZh": "冢本数美",
+    "nameJa": "塚本数美"
+  },
+  {
+    "image": "CHARACTER LIST 本堂瑛祐.png",
+    "nameZh": "本堂瑛祐",
+    "nameJa": "本堂瑛祐"
+  },
+  {
+    "image": "中道 1.png",
+    "nameZh": "中道",
+    "nameJa": "中道"
+  },
+  {
+    "image": "CHARACTER LIST 京极真.png",
+    "nameZh": "京极真",
+    "nameJa": "京極真"
+  },
+  {
+    "image": "黑羽快斗.png",
+    "nameZh": "黑羽快斗",
+    "nameJa": "黒羽快斗"
+  },
+  {
+    "image": "中森青子.png",
+    "nameZh": "中森青子",
+    "nameJa": "中森青子"
+  },
+  {
+    "image": "白马探.png",
+    "nameZh": "白马探",
+    "nameJa": "白馬探"
+  },
+  {
+    "image": "冲田总司.png",
+    "nameZh": "冲田总司",
+    "nameJa": "沖田総司"
+  },
+  {
+    "image": "Momiji.png",
+    "nameZh": "大冈红叶",
+    "nameJa": "大岡紅葉"
+  },
+  {
+    "image": "植松龙司郎.png",
+    "nameZh": "植松龙司郎",
+    "nameJa": "植松竜司郎"
+  },
+  {
+    "image": "小林澄子.png",
+    "nameZh": "小林澄子",
+    "nameJa": "小林澄子"
+  },
+  {
+    "image": "若狭留美.png",
+    "nameZh": "若狭留美",
+    "nameJa": "若狭留美"
+  },
+  {
+    "image": "东尾玛利亚.png",
+    "nameZh": "东尾玛利亚",
+    "nameJa": "東尾マリア"
+  },
+  {
+    "image": "CHARACTER LIST 坂本琢马.png",
+    "nameZh": "坂本琢马",
+    "nameJa": "坂本琢馬"
+  },
+  {
+    "image": "CHARACTER LIST 伊东惠.png",
+    "nameZh": "伊东惠",
+    "nameJa": "伊東めぐみ"
+  },
+  {
+    "image": "铃木次郎吉.png",
+    "nameZh": "铃木次郎吉",
+    "nameJa": "鈴木次郎吉"
+  },
+  {
+    "image": "铃木史郎.png",
+    "nameZh": "铃木史郎",
+    "nameJa": "鈴木史郎"
+  },
+  {
+    "image": "CHARACTER LIST 铃木朋子.png",
+    "nameZh": "铃木朋子",
+    "nameJa": "鈴木朋子"
+  },
+  {
+    "image": "铃木绫子1.png",
+    "nameZh": "铃木绫子",
+    "nameJa": "鈴木綾子"
+  },
+  {
+    "image": "新出智明1.png",
+    "nameZh": "新出智明",
+    "nameJa": "新出智明"
+  },
+  {
+    "image": "小仓功雅1.png",
+    "nameZh": "小仓功雅",
+    "nameJa": "小倉功雅"
+  },
+  {
+    "image": "大桥彩代.png",
+    "nameZh": "大桥彩代",
+    "nameJa": "大橋彩代"
+  },
+  {
+    "image": "玉木裕次郎.png",
+    "nameZh": "玉木裕次郎",
+    "nameJa": "玉木裕次郎"
+  },
+  {
+    "image": "玉木一朗.png",
+    "nameZh": "玉木一朗",
+    "nameJa": "玉木一朗"
+  },
+  {
+    "image": "吉川美知子.png",
+    "nameZh": "吉川美知子",
+    "nameJa": "吉川美知子"
+  },
+  {
+    "image": "金子圭太.png",
+    "nameZh": "金子圭太",
+    "nameJa": "金子圭太"
+  },
+  {
+    "image": "CHARACTER LIST 羽田浩司.png",
+    "nameZh": "羽田浩司",
+    "nameJa": "羽田浩司"
+  },
+  {
+    "image": "CHARACTER_Haneda_Shukichi.png",
+    "nameZh": "羽田秀吉",
+    "nameJa": "羽田秀𠮷"
+  },
+  {
+    "image": "CHARACTER_Katsumata_Chikara.png",
+    "nameZh": "胜又力",
+    "nameJa": "勝又力"
+  },
+  {
+    "image": "CHARACTER 赤木英雄 1.png",
+    "nameZh": "赤木英雄",
+    "nameJa": "赤木英雄"
+  },
+  {
+    "image": "CHARACTER 上村直树 1.png",
+    "nameZh": "上村直树",
+    "nameJa": "上村直樹"
+  },
+  {
+    "image": "CHARACTER LIST 比护隆佑.png",
+    "nameZh": "比护隆佑",
+    "nameJa": "比護隆佑"
+  },
+  {
+    "image": "真田贵大.png",
+    "nameZh": "真田贵大",
+    "nameJa": "真田貴大"
+  },
+  {
+    "image": "黑羽盗一.png",
+    "nameZh": "黑羽盗一",
+    "nameJa": "黒羽盗一"
+  },
+  {
+    "image": "第一代怪盗基德.png",
+    "nameZh": "第一代怪盗基德",
+    "nameJa": "初代怪盗キッド"
+  },
+  {
+    "image": "怪盗乌鸦.png",
+    "nameZh": "怪盗乌鸦",
+    "nameJa": "怪盗コルボー"
+  },
+  {
+    "image": "真田一三2.png",
+    "nameZh": "真田一三",
+    "nameJa": "真田一三"
+  },
+  {
+    "image": "CHARACTER LIST 冲野洋子.png",
+    "nameZh": "冲野洋子",
+    "nameJa": "沖野ヨーコ"
+  },
+  {
+    "image": "剑崎修.png",
+    "nameZh": "剑崎修",
+    "nameJa": "剣崎修"
+  },
+  {
+    "image": "岳野雪1.png",
+    "nameZh": "岳野雪",
+    "nameJa": "岳野ユキ"
+  },
+  {
+    "image": "CHARACTER LIST 伊东玉之助.png",
+    "nameZh": "伊东玉之助",
+    "nameJa": "伊東玉之助"
+  },
+  {
+    "image": "CHARACTER LIST 片冈莲华.png",
+    "nameZh": "片冈莲华",
+    "nameJa": "片岡れんげ"
+  },
+  {
+    "image": "光本兵我.png",
+    "nameZh": "光本兵我",
+    "nameJa": "光本兵我"
+  },
+  {
+    "image": "板仓卓.png",
+    "nameZh": "板仓卓",
+    "nameJa": "板倉卓"
+  },
+  {
+    "image": "芙莎绘·坎贝尔·木之下.png",
+    "nameZh": "芙莎绘·坎贝尔·木之下",
+    "nameJa": "フサエ·キャンベル·木之下"
+  },
+  {
+    "image": "CHARACTER LIST 阿曼达·休斯.png",
+    "nameZh": "阿曼达·休斯",
+    "nameJa": "アマンダ·ヒューズ"
+  },
+  {
+    "image": "CHARACTER LIST 山岸荣一.png",
+    "nameZh": "山岸荣一",
+    "nameJa": "山岸栄一"
+  },
+  {
+    "image": "",
+    "nameZh": "吉田步美的母亲",
+    "nameJa": "吉田歩美の母親"
+  },
+  {
+    "image": "江户川文代.png",
+    "nameZh": "江户川文代",
+    "nameJa": "江戸川文代"
+  },
+  {
+    "image": "富泽雄三1.png",
+    "nameZh": "富泽雄三",
+    "nameJa": "富沢雄三"
+  },
+  {
+    "image": "美和子的母亲.png",
+    "nameZh": "佐藤美和子的母亲",
+    "nameJa": "佐藤美和子の母親"
+  },
+  {
+    "image": "目暮绿.png",
+    "nameZh": "目暮绿",
+    "nameJa": "目暮みどり"
+  },
+  {
+    "image": "寺井黄之助.png",
+    "nameZh": "寺井黄之助",
+    "nameJa": "寺井黄之助"
+  },
+  {
+    "image": "服部静华.png",
+    "nameZh": "服部静华",
+    "nameJa": "服部静華"
+  },
+  {
+    "image": "鸭井五十吉.png",
+    "nameZh": "鸭井五十吉",
+    "nameJa": "鴨井五十吉"
+  },
+  {
+    "image": "CHARACTER LIST 圆谷朝美.png",
+    "nameZh": "圆谷朝美",
+    "nameJa": "円谷朝美"
+  },
+  {
+    "image": "山村美纱绘.png",
+    "nameZh": "山村美纱绘",
+    "nameJa": "山村ミサエ"
+  },
+  {
+    "image": "小岛元次.png",
+    "nameZh": "小岛元次",
+    "nameJa": "小嶋元次"
+  },
+  {
+    "image": "CHARACTER LIST 黑羽千影.png",
+    "nameZh": "黑羽千影",
+    "nameJa": "黒羽千影"
+  },
+  {
+    "image": "怪盗淑女.png",
+    "nameZh": "怪盗淑女",
+    "nameJa": "怪盗淑女"
+  },
+  {
+    "image": "米原樱子.png",
+    "nameZh": "米原樱子",
+    "nameJa": "米原桜子"
+  },
+  {
+    "image": "鬼丸猛.png",
+    "nameZh": "鬼丸猛",
+    "nameJa": "鬼丸猛"
+  },
+  {
+    "image": "石川元气 卡片图.png",
+    "nameZh": "石川元气",
+    "nameJa": "石川元気"
+  },
+  {
+    "image": "大井宏树.png",
+    "nameZh": "大井宏树",
+    "nameJa": "大井宏樹"
+  },
+  {
+    "image": "大江忍.png",
+    "nameZh": "大江忍",
+    "nameJa": "大江忍"
+  },
+  {
+    "image": "",
+    "nameZh": "远山樱",
+    "nameJa": "遠山桜"
+  },
+  {
+    "image": "小麿.png",
+    "nameZh": "小麿",
+    "nameJa": "マロ"
+  },
+  {
+    "image": "CHARACTER LIST 鲁邦.png",
+    "nameZh": "鲁邦",
+    "nameJa": "ルパン"
+  },
+  {
+    "image": "咕噜.png",
+    "nameZh": "咕噜",
+    "nameJa": "ゴロ"
+  },
+  {
+    "image": "CHARACTER LIST 大尉.png",
+    "nameZh": "大尉",
+    "nameJa": "大尉"
+  },
+  {
+    "image": "CHARACTER LIST 假面超人.png",
+    "nameZh": "假面超人",
+    "nameJa": "仮面ヤイバー"
+  },
+  {
+    "image": "CHARACTER LIST 暗夜男爵.png",
+    "nameZh": "暗夜男爵",
+    "nameJa": "闇の男爵"
+  },
+  {
+    "image": "CHARACTER LIST 哥美拉.png",
+    "nameZh": "哥美拉",
+    "nameJa": "ゴメラ"
+  },
+  {
+    "image": "CHARACTER LIST 松田左文字.png",
+    "nameZh": "松田左文字",
+    "nameJa": "松田左文字"
+  }
+]
