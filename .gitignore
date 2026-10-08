@@ -22,12 +22,11 @@ Thumbs.db
 .edgeprofile*/
 .workbuddy/
 
-# 原图备份（tools/optimize_avatars.js 自动生成）
-_old/avatars-png/
-
 # 过程产物：截图验证与旧版半成品归档，不进仓库
+# （shoot.js 默认已不写截图到项目内，这里是兜底）
 shots/
 _old/
+_old/avatars-png/          # optimize_avatars.js 生成的原图备份
 
 # 部署产物（deploy/ 里手写脚本和配置要提交，打出来的包不进仓库）
 keNan-site.zip

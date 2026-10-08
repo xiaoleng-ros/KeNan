@@ -70,7 +70,7 @@ node serve.js
 │   ├── extract_home.js          # 提取首页资讯数据
 │   ├── regress.js               # 一站式回归：起服务 + 起浏览器 + 跑脚本
 │   ├── with_browser.js          # 仅启动无头 Edge 执行 CDP 脚本
-│   ├── shoot.js                 # 页面截图 + 渲染断言
+│   ├── shoot.js                 # 渲染断言（默认不截图，--shot 才产出到临时目录）
 │   ├── check_icons.js           # 图片加载状态检查
 │   ├── test_ui.js               # 9 项交互回归测试
 │   ├── debug_layout.js          # 元素盒模型调试
@@ -203,9 +203,19 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 # 一站式回归（自动起服务 + 无头浏览器，跑完自动关闭）
 node tools/regress.js tools/test_ui.js
 
-# 截图（桌面 / 移动端）
+# 渲染断言：只读 DOM，不产出任何文件
 node tools/regress.js tools/shoot.js index
 node tools/regress.js tools/shoot.js characters --mobile
+```
+
+`shoot.js` **默认不截图**，只在项目里做 DOM 断言（标题、元素数量、表格行数、正文长度、
+JS 报错），跑完不留任何文件。需要看截图时显式加 `--shot`：
+
+```bash
+node tools/regress.js tools/shoot.js index --shot
+# → C:\Users\<你>\AppData\Local\Temp\kenan-shots\index.png
+
+node tools/regress.js tools/shoot.js index --shot=./out   # 显式指定目录时才写项目内
 ```
 
 `regress.js` 会在 4174 端口起临时服务器、在 9222 拉起无头 Edge，
@@ -214,8 +224,8 @@ node tools/regress.js tools/shoot.js characters --mobile
 单独调试时也可以手动来：
 
 ```bash
-cd site && node serve.js        # 起服务
-node tools/with_browser.js tools/test_ui.js   # 跑脚本（自动开关浏览器）
+cd site && node serve.js                    # 起服务
+node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器）
 ```
 
 当前状态：8 个页面全部 HTTP 200，链接完整性 `bad: []`，

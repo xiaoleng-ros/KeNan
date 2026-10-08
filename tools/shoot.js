@@ -1,9 +1,21 @@
 /**
- * 用 CDP 驱动 Edge 无头浏览器截图 + 抓取渲染后的 DOM，用于验证页面真实效果。
- * 前置：已用 --remote-debugging-port=9222 启动 Edge
+ * 用 CDP 驱动 Edge 无头浏览器做渲染断言（可选截图）。
+ * 前置：已用 --remote-debugging-port=9222 启动 Edge，或直接用 tools/regress.js
+ *
+ * 默认只做 DOM 断言，**不写任何文件到项目目录**。
+ * 需要截图时显式加 --shot，此时图片写到系统临时目录（os.tmpdir），
+ * 并打印完整路径，不污染仓库。
+ *
+ * 用法：
+ *   node tools/shoot.js index
+ *   node tools/shoot.js index --mobile
+ *   node tools/shoot.js index --shot          # 截图到临时目录
+ *   node tools/shoot.js index --shot=./out    # 显式指定输出目录
  */
 const http = require('http');
 const fs = require('fs');
+const os = require('os');
+const path = require('path');
 const crypto = require('crypto');
 const net = require('net');
 
@@ -137,6 +149,14 @@ class WS {
   const VH = MOBILE ? 900 : 1000;
   const MAXH = MOBILE ? 2400 : 5200;
   const pages = process.argv.slice(2).filter(a => !a.startsWith('--'));
+
+  // 截图默认关闭；--shot 开启，--shot=DIR 指定输出目录（默认系统临时目录）
+  const shotArg = process.argv.find(a => a === '--shot' || a.startsWith('--shot='));
+  const SHOT = !!shotArg;
+  const SHOT_DIR = shotArg && shotArg.includes('=')
+    ? path.resolve(shotArg.split('=')[1])
+    : path.join(os.tmpdir(), 'kenan-shots');
+
   const targets = await httpGet('/json/list');
   const page = targets.find(t => t.type === 'page');
   if (!page) throw new Error('no page target');
@@ -150,7 +170,7 @@ class WS {
     width: VW, height: VH, deviceScaleFactor: 1, mobile: MOBILE,
   });
 
-  fs.mkdirSync('shots', { recursive: true });
+  if (SHOT) fs.mkdirSync(SHOT_DIR, { recursive: true });
 
   for (const name of pages) {
     const url = `${BASE}/${name}.html`;
@@ -183,7 +203,9 @@ class WS {
     console.log('=== ' + name + ' ===');
     console.log(JSON.stringify(probe.result.value));
 
-    // 全页截图
+    if (!SHOT) continue;
+
+    // 全页截图（仅 --shot 时）
     const metrics = await ws.send('Page.getLayoutMetrics');
     const h = Math.min(Math.ceil(metrics.cssContentSize.height), MAXH);
     await ws.send('Emulation.setDeviceMetricsOverride', {
@@ -192,8 +214,9 @@ class WS {
     await new Promise(r => setTimeout(r, 900));
     const shot = await ws.send('Page.captureScreenshot', { format: 'png' });
     const suffix = MOBILE ? '_m' : '';
-    fs.writeFileSync(`shots/${name}${suffix}.png`, Buffer.from(shot.data, 'base64'));
-    console.log(`   shot saved: shots/${name}${suffix}.png height=${h}`);
+    const out = path.join(SHOT_DIR, `${name}${suffix}.png`);
+    fs.writeFileSync(out, Buffer.from(shot.data, 'base64'));
+    console.log(`   shot: ${out} height=${h}`);
   }
 
   ws.close();
