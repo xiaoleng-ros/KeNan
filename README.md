@@ -76,8 +76,30 @@ node serve.js
 │   ├── debug_layout.js          # 元素盒模型调试
 │   └── shrink_avatars.js        # 旧方案（该站未开放缩略图，已弃用）
 │
-├── shots/                    # 各页桌面版 / 移动端截图
-└── _old/                     # 归档：旧半成品、实验脚本、原图备份
+└── deploy/                   # 部署
+    ├── README.md              # 1Panel + OpenResty 部署步骤与排错表
+    ├── nginx-1panel.conf      # gzip / 缓存 / 静态资源片段
+    └── pack.js                # 打包 site/ 为 zip
+```
+
+> `shots/`（截图）、`_old/`（旧半成品）、`keNan-site.zip`、`.workbuddy/`（本地记忆与浏览器 profile）
+> 都是过程产物，已在 `.gitignore` 中排除，不进仓库。
+
+---
+
+## 部署
+
+`deploy/README.md` 有完整的 1Panel + OpenResty 部署步骤，要点：
+
+- 纯静态站，**只需 OpenResty**，不需要 Node 运行时和数据库
+- **必须开 gzip** —— `data/` 有 512KB JSON，不压缩传输体积差 4 倍多
+- 传完先验证 `data/characters.json` 是否 200。若 404，页面框架会出来但内容一片空白（最容易踩的坑）
+- 服务器上拉仓库的话用 sparse-checkout 只取 `site/`：
+
+```bash
+git clone --filter=blob:none --sparse https://github.com/xiaoleng-ros/KeNan.git
+cd KeNan && git sparse-checkout set site
+cp -r site/* /opt/1panel/www/sites/keNan/index/
 ```
 
 ---
