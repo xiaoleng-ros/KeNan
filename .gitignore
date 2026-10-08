@@ -13,14 +13,15 @@ npm-debug.log*
 .DS_Store
 Thumbs.db
 
-# IDE 配置（可选）
+# IDE / AI 工具的本地工作数据（都不该进仓库）
 .vscode/
 .idea/
+.trae/
+.workbuddy/
 
-# 截图调试时 Edge 生成的浏览器 profile（可安全删除）
+# 调试时 Edge 生成的浏览器 profile（可安全删除）
 .edgeprofile/
 .edgeprofile*/
-.workbuddy/
 
 # 过程产物：截图验证与旧版半成品归档，不进仓库
 # （shoot.js 默认已不写截图到项目内，这里是兜底）
