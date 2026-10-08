@@ -1,0 +1,265 @@
+{
+ "day": "7",
+ "month": "Oct",
+ "manga": {
+  "key": "manga",
+  "title": "原作漫画",
+  "link": "manga.html",
+  "lines": [
+   {
+    "cls": "",
+    "date": "12月02日",
+    "tag": "篇章第1话",
+    "left": "12月02日 篇章第1话",
+    "right": "File.1170",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "10月07日",
+    "tag": "篇章第3话·解决篇",
+    "left": "10月07日 篇章第3话·解决篇",
+    "right": "File.1169 染血的和弦暗号",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "09月30日",
+    "tag": "篇章第2话",
+    "left": "09月30日 篇章第2话",
+    "right": "File.1168 人为的痕迹",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "09月16日",
+    "tag": "篇章第1话",
+    "left": "09月16日 篇章第1话",
+    "right": "File.1167 迷路的小兰",
+    "today": false,
+    "week": false
+   }
+  ],
+  "bullets": []
+ },
+ "movie": {
+  "key": "movie",
+  "title": "剧场版",
+  "link": "movies.html",
+  "lines": [],
+  "bullets": [
+   "M30 制作决定表明，主场景为伦敦。",
+   "M29 高速公路的堕天使 于2026年4月10日在日本首映，导演为莲井隆弘，编剧为大仓崇裕，登场角色包括萩原千速、横沟重悟、世良真纯、松田阵平、萩原研二、宫本由美、三池苗子、安室透。"
+  ]
+ },
+ "oom": {
+  "key": "oom",
+  "title": "关联作品",
+  "link": "about.html",
+  "lines": [],
+  "bullets": [
+   "《犯人犯泽先生》原作漫画 2026年3月25日 HZFile.59 恋爱的伊吕波",
+   "《YAIBA》2025版动画 2027年1月9日 Legend25"
+  ]
+ },
+ "anime": {
+  "key": "anime",
+  "title": "电视动画",
+  "link": "anime.html",
+  "lines": [
+   {
+    "cls": "",
+    "date": "10月10日",
+    "tag": "漫画改编",
+    "left": "10月10日 漫画改编",
+    "right": "TV1216(1276) 茜红色的最终日（大轴日）",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "10月03日",
+    "tag": "漫画改编",
+    "left": "10月03日 漫画改编",
+    "right": "TV1215(1275) 茜红色的最终日（压轴日）",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "09月26日",
+    "tag": "漫画改编",
+    "left": "09月26日 漫画改编",
+    "right": "TV1214(1274) 茜红色的最终日（首演日）",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "09月25日",
+    "tag": "动画原创",
+    "left": "09月25日 动画原创",
+    "right": "SPTV10 30号杀人事件【2小时特别篇】",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "news-aired",
+    "date": "09月19日",
+    "tag": "动画原创",
+    "left": "09月19日 动画原创",
+    "right": "TV1213(1273) 目击者，毛利兰",
+    "today": false,
+    "week": false
+   }
+  ],
+  "bullets": [],
+  "note": "注：剧集编号的括号内为拆分版集数。"
+ },
+ "music": {
+  "key": "music",
+  "title": "音乐",
+  "link": "music.html",
+  "lines": [
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "ED76 愛で全部抱きしめて愛して／仓木麻衣",
+    "right": "9月26日启用·原版10月10日发表",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "SPTM17 ハレルヤ／仓木麻衣",
+    "right": "SPTV10主题歌·原版9月25日发表",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "OP62 愛のFIRE／新滨莱昂",
+    "right": "7月11日启用·原版7月11日发表",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "ED75 7 DAYS／Rainy。",
+    "right": "6月6日启用·原版6月6日发表",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "MT29 ラストダンスあなたと／米希亚",
+    "right": "M29片尾曲·原版4月10日发表",
+    "today": false,
+    "week": false
+   },
+   {
+    "cls": "",
+    "date": "",
+    "tag": "",
+    "left": "M29原声集／菅野祐悟",
+    "right": "4月8日发行",
+    "today": false,
+    "week": false
+   }
+  ],
+  "bullets": []
+ },
+ "other": {
+  "key": "other",
+  "title": "出版物",
+  "link": "",
+  "lines": [],
+  "bullets": [
+   "2026年10月16日 原作漫画第109卷发行",
+   "2026年4月8日 原作漫画第108卷发行"
+  ]
+ },
+ "dyk": {
+  "title": "你知道吗",
+  "items": [
+   "哪位歌手的主要音乐流派属于演歌？",
+   "在哪一集中，国人画师首次担任作画监督？",
+   "哪个角色既被高木涉配音过，又被千叶一伸配音过？",
+   "谁曾因为身上的警犬味而被安室透的宠物狗哈罗讨厌？"
+  ]
+ },
+ "star": {
+  "title": "精选条目",
+  "img": "https://www.conanpedia.com/images/b/b8/ED22.jpg",
+  "text": "《世界 止めて》是《名侦探柯南》的第22首常规片尾主题曲，由竹井诗织里演唱。",
+  "quote": "“ 连结二人的引力 让我们在未来… 即使走散 也一定能找到对方"
+ },
+ "welcome": {
+  "title": "加入柯南的世界",
+  "text": "本站收录名侦探柯南的原作漫画、电视动画、剧场版与角色资料，共 2,000+ 条数据，随时查阅。"
+ },
+ "linkCols": [
+  {
+   "icon": "bookmark_border",
+   "title": "常用页面",
+   "items": [
+    {
+     "href": "manga.html",
+     "text": "原作漫画"
+    },
+    {
+     "href": "anime.html",
+     "text": "电视动画"
+    },
+    {
+     "href": "movies.html",
+     "text": "剧场版"
+    },
+    {
+     "href": "characters.html",
+     "text": "角色名录"
+    },
+    {
+     "href": "music.html",
+     "text": "音乐"
+    }
+   ]
+  },
+  {
+   "icon": "contact_support",
+   "title": "关于本站",
+   "items": [
+    {
+     "href": "about.html",
+     "text": "本站说明"
+    },
+    {
+     "href": "about.html#source",
+     "text": "数据来源"
+    },
+    {
+     "href": "search.html",
+     "text": "站内搜索"
+    },
+    {
+     "href": "index.html",
+     "text": "返回首页"
+    }
+   ]
+  }
+ ],
+ "greetingText": "以弱冠18岁之龄……400战全胜！孤高的拳圣京极真！ ／ TV458",
+ "greetingLink": "anime.html"
+}

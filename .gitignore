@@ -16,3 +16,27 @@ Thumbs.db
 # IDE 配置（可选）
 .vscode/
 .idea/
+
+# 截图调试时 Edge 生成的浏览器 profile（可安全删除）
+.edgeprofile/
+.edgeprofile*/
+.workbuddy/
+
+# 原图备份（tools/optimize_avatars.js 自动生成）
+_old/avatars-png/
+
+# 过程产物：截图验证与旧版半成品归档，不进仓库
+shots/
+_old/
+
+# 部署产物（deploy/ 里手写脚本和配置要提交，打出来的包不进仓库）
+keNan-site.zip
+
+# 历史遗留的中间产物（旧管线脚本输出，已由 site/data/*.json 取代）
+all_characters_list.json
+api_content.json
+characters_raw.json
+conan-characters-raw.json
+conan_characters.json
+conan_page.html
+missing_avatars_*.json
