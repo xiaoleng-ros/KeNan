@@ -7,6 +7,7 @@
 const { spawn, execFileSync } = require('child_process');
 const fs = require('fs');
 const path = require('path');
+const os = require('os');
 
 const EXE_CANDIDATES = [
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
@@ -16,8 +17,13 @@ const EXE_CANDIDATES = [
 ];
 
 const ROOT = path.join(__dirname, '..');
-const PROFILE = path.join(ROOT, '.workbuddy/edge-profile');
 const PORT = 9222;
+
+/**
+ * 无头浏览器的 user-data-dir 放系统临时目录，不写进工作区。
+ * 每次跑都会重新生成，纯缓存，没有保留价值。
+ */
+const PROFILE = path.join(os.tmpdir(), 'kenan-edge-profile');
 
 const script = process.argv[2];
 if (!script) {

@@ -7,11 +7,18 @@ const { spawn, execFileSync } = require('child_process');
 const fs = require('fs');
 const net = require('net');
 const path = require('path');
+const os = require('os');
 const http = require('http');
 
 const ROOT = path.join(__dirname, '..');
 const PORT = parseInt(process.env.SITE_PORT, 10) || 4174;
 const SITE = path.join(ROOT, 'site');
+
+/**
+ * 无头浏览器的 user-data-dir 放系统临时目录，不写进工作区。
+ * 每次跑都会重新生成，纯缓存，没有保留价值。
+ */
+const PROFILE = path.join(os.tmpdir(), 'kenan-edge-profile');
 
 const EXE_CANDIDATES = [
   'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe',
@@ -29,7 +36,6 @@ const passArgs = argv.slice(argv.indexOf(scripts[0]) + 1).filter(a => !a.endsWit
 const exe = EXE_CANDIDATES.find(p => fs.existsSync(p));
 if (!exe) { console.error('未找到 Edge / Chrome'); process.exit(1); }
 
-const PROFILE = path.join(ROOT, '.workbuddy/edge-profile');
 fs.mkdirSync(PROFILE, { recursive: true });
 
 const srv = spawn(process.execPath, [path.join(SITE, 'serve.js'), String(PORT)], {

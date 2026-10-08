@@ -1,5 +1,7 @@
 /** 调试指定页面的元素计算样式与盒模型 */
 const http = require('http');
+const os = require('os');
+const path = require('path');
 const net = require('net');
 const crypto = require('crypto');
 
@@ -73,7 +75,7 @@ class WS {
   const { spawn } = require('child_process');
   const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
   const proc = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-sandbox', '--no-first-run',
-    '--user-data-dir=D:/Gcodeprojects/KeNan/.edgeprofile2', '--remote-debugging-port=9223', 'about:blank'],
+    '--user-data-dir=' + path.join(os.tmpdir(), 'kenan-edge-profile-debug'), '--remote-debugging-port=9223', 'about:blank'],
     { detached: true, stdio: 'ignore' });
   proc.unref();
   for (let i = 0; i < 40; i++) {

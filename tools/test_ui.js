@@ -1,5 +1,7 @@
 /** 交互测试：搜索、筛选、切换 */
 const http = require('http');
+const os = require('os');
+const path = require('path');
 const net = require('net');
 const crypto = require('crypto');
 
@@ -74,7 +76,7 @@ class WS {
   const { spawn } = require('child_process');
   const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
   const proc = spawn(EDGE, ['--headless=new', '--disable-gpu', '--no-sandbox', '--no-first-run',
-    '--user-data-dir=D:/Gcodeprojects/KeNan/.edgeprofile3', '--remote-debugging-port=9224', 'about:blank'],
+    '--user-data-dir=' + path.join(os.tmpdir(), 'kenan-edge-profile-test'), '--remote-debugging-port=9224', 'about:blank'],
     { detached: true, stdio: 'ignore' });
   proc.unref();
   for (let i = 0; i < 40; i++) {

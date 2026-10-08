@@ -130,7 +130,7 @@ class WS {
   // 自动启动无头 Edge
   const { spawn } = require('child_process');
   const EDGE = 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe';
-  const prof = 'D:/Gcodeprojects/KeNan/.edgeprofile';
+  const prof = path.join(os.tmpdir(), 'kenan-edge-profile');
   const proc = spawn(EDGE, [
     '--headless=new','--disable-gpu','--no-sandbox','--hide-scrollbars','--no-first-run',
     '--disable-extensions','--user-data-dir=' + prof, '--remote-debugging-port=9222', 'about:blank'
