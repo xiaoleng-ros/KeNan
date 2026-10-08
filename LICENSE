@@ -1,0 +1,81 @@
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+官方条文：https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+中文摘要：https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh
+
+================================================================================
+本项目采用 CC BY-NC-SA 4.0 授权
+================================================================================
+
+一、适用范围
+
+本许可证适用于：
+
+  - 本仓库中的**文字内容**：站点文案、字段标签、分类名称、说明文字
+  - 本仓库中的**代码**：site/ 下的 HTML / CSS / JavaScript
+  - 本仓库中的**结构化数据**：site/data/*.json 中的条目字段
+    （作品名称、集数、发售日期、票房、制作人员、声优、角色设定等事实性信息）
+  - tools/ 下的数据抓取与处理脚本
+
+二、不在授权范围内的内容（重要）
+
+以下内容**不适用**本许可证，其著作权归各自权利人所有：
+
+  - site/assets/avatars/ 下的 159 张角色头像
+  - site/assets/img/bg.jpg（背景图，源自柯南百科 Hibiki-bg.jpg）
+  - site/assets/img/featured.jpg（源自柯南百科 ED22.jpg）
+  - 站名「柯南的世界」及各页文案中的作品名、角色名等专有名称
+  - 《名侦探柯南》原作角色、场景、作品等一切权利
+
+上述角色头像与背景素材系第三方作品，本项目作者**无权**对其再许可。
+其著作权分别归属：
+
+  - 角色形象：《名侦探柯南》作者 **青山刚昌** 老师及相关权利方
+  - 背景图与精选条目图：**银色子弹（SBSUB）**，见
+    https://www.conanpedia.com/%E6%9F%AF%E5%8D%97%E7%99%BE%E7%A7%91:%E7%89%88%E6%9D%83
+
+如权利方认为本项目使用不当，请联系删除。
+
+三、署名要求（署名 — Attribution）
+
+使用本项目文字或数据时，必须：
+
+  1. 注明来源：**柯南百科（conanpedia.com）**，银色子弹组织出品
+  2. 给出**原始条目页 URL**
+  3. 标明**是否对原始内容作了修改**（本项目作了格式转换与筛选）
+
+数据来源对照表见 README.md「数据来源」章节。
+
+四、非商业性使用（NonCommercial）
+
+不得将本项目用于商业目的。衍生作品亦不得用于商业目的。
+
+五、相同方式共享（ShareAlike）
+
+若基于本项目内容进行改编或再发布，必须：
+
+  - 以**相同许可证**（CC BY-NC-SA 4.0）分发
+  - 保留本文件
+  - 保留原作品完整的署名与许可声明
+
+六、免责声明
+
+本许可证不提供担保（NO WARRANTY）。本项目作者不对使用本内容导致的任何后果负责。
+
+七、数据原始来源声明
+
+本项目的全部条目数据抓取自柯南百科 MediaWiki API，内容与结构均归原站所有：
+
+  原作漫画  ← https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%8E%9F%E4%BD%9C%E6%BC%AB%E7%94%BB
+  电视动画  ← https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E7%94%B5%E8%A7%86%E5%8A%A8%E7%94%BB
+  剧场版    ← https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%89%A7%E5%9C%BA%E7%89%88
+  角色名录  ← https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E8%A7%92%E8%89%B2
+  音乐      ← https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E9%9F%B3%E4%B9%90
+
+原站许可声明：
+  https://www.conanpedia.com/%E6%9F%AF%E5%8D%97%E7%99%BE%E7%A7%91:%E7%89%88%E6%9D%83
+
+================================================================================
+原作者：Iceuu <1873048956@qq.com>
+项目地址：https://github.com/xiaoleng-ros/KeNan
+================================================================================

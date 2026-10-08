@@ -45,16 +45,27 @@
     </div>
 
     <div class="about-card" id="source">
-      <h2>数据来源</h2>
-      <p>本站数据整理自公开的百科资料页面，条目结构与内容以原始资料为准：</p>
+      <h2>数据来源与许可</h2>
+      <p>本站全部条目数据抓取自
+        <a href="https://www.conanpedia.com/" target="_blank" rel="noopener"><b>柯南百科</b></a>
+        （银色子弹 SBSUB 出品）的 MediaWiki 接口，按下表逐项署名：</p>
       <ul>
-        <li>原作漫画章节表 — 依据《周刊少年Sunday》刊号与事件清单整理</li>
-        <li>电视动画集数表 — 含原版集数、拆分版集数与首播收视率</li>
-        <li>剧场版作品表 — 含导演、编剧、时长与日本票房统计</li>
-        <li>角色名录 — 按常驻角色所属阵营分组，附声优信息</li>
-        <li>音乐条目 — 主题曲与剧场版主题的原名及演唱者</li>
+        <li>原作漫画章节表 — 来源：<a href="https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%8E%9F%E4%BD%9C%E6%BC%AB%E7%94%BB" target="_blank" rel="noopener">名侦探柯南原作漫画</a>，含刊号、标题与事件清单</li>
+        <li>电视动画集数表 — 来源：<a href="https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E7%94%B5%E8%A7%86%E5%8A%A8%E7%94%BB" target="_blank" rel="noopener">名侦探柯南电视动画</a>，含集数、标题、首播日期与收视率</li>
+        <li>剧场版作品表 — 来源：<a href="https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%89%A7%E5%9C%BA%E7%89%88" target="_blank" rel="noopener">名侦探柯南剧场版</a>，含导演、编剧、时长与日本票房</li>
+        <li>角色名录 — 来源：<a href="https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E8%A7%92%E8%89%B2" target="_blank" rel="noopener">名侦探柯南角色</a>，按常驻角色所属阵营分组，附声优信息</li>
+        <li>音乐条目 — 来源：<a href="https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E9%9F%B3%E4%B9%90" target="_blank" rel="noopener">名侦探柯南音乐</a>，主题曲与剧场版主题的原名及演唱者</li>
       </ul>
-      <p style="color:#98a0ac;font-size:.86rem">《名侦探柯南》原作©青山刚昌／小学馆。动画及剧场版版权归各权利方所有。本站仅作资料整理与学习交流。</p>
+      <p>上述内容依
+        <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a>
+        授权使用（署名 — 非商业 — 相同方式共享），本站已注明来源并标明做过格式转换与筛选。
+        详细条款见原站
+        <a href="https://www.conanpedia.com/%E6%9F%AF%E5%8D%97%E7%99%BE%E7%A7%91:%E7%89%88%E6%9D%83" target="_blank" rel="noopener">柯南百科:版权</a>。</p>
+      <p style="color:#98a0ac;font-size:.86rem">
+        <b>不在授权范围内的内容：</b>本站 159 张角色头像版权归<b>青山刚昌</b>老师及相关权利方所有，
+        背景图与精选条目图版权归银色子弹所有，均不适用 CC 协议。
+        《名侦探柯南》原作©青山刚昌／小学馆；动画及剧场版版权归各权利方所有。
+        本站为非官方粉丝站，仅作资料整理与学习交流；如权利方认为使用不妥，请联系删除。</p>
     </div>
 
     <div class="about-card">

@@ -147,7 +147,14 @@ function renderFooter() {
     <div class="flinks">
       ${FOOTER_LINKS.map(l => `<a href="${l.href}">${esc(l.text)}</a>`).join('')}
     </div>
-    <div class="credit">本站为名侦探柯南资料站复刻作品，数据整理自公开百科资料，仅供学习交流。</div>`;
+    <div class="credit">
+      本站为名侦探柯南资料站复刻作品，<strong>非官方粉丝站</strong>，仅供学习交流。<br>
+      条目数据整理自 <a href="https://www.conanpedia.com/" target="_blank" rel="noopener">柯南百科</a>
+      （银色子弹 SBSUB 出品），依
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">CC BY-NC-SA 4.0</a> 授权。<br>
+      角色头像版权归<strong>青山刚昌</strong>老师及相关权利方所有，不在 CC 授权范围内。<br>
+      如权利方认为使用不妥，请联系删除。
+    </div>`;
 }
 
 /** 页面初始化 */
