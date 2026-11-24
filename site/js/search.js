@@ -32,39 +32,57 @@
     if (state.type === 'all' || state.type === 'char') {
       for (const c of (chars || [])) {
         if (has(c.nameZh, c.nameJa, c.voice, c.desc)) {
-          res.push({ type: 'char', title: c.nameZh, sub: c.nameJa, extra: `${c.group} · 声优 ${c.voice}`, href: 'characters.html' });
+          res.push({ type: 'char', title: c.nameZh, sub: c.nameJa, extra: `${c.group} · 声优 ${c.voice}`, href: 'characters.html?name=' + encodeURIComponent(c.nameZh) });
         }
       }
     }
     if (state.type === 'all' || state.type === 'anime') {
       for (const e of (anime?.eps || [])) {
         if (has(e.id, e.titleZh, e.titleJa)) {
-          res.push({ type: 'anime', title: `${e.id} ${e.titleZh}`, sub: e.titleJa, extra: `首播 ${e.date}`, href: 'anime.html' });
+          res.push({ type: 'anime', title: `${e.id} ${e.titleZh}`, sub: e.titleJa, extra: `首播 ${e.date}`, href: 'anime.html?id=' + encodeURIComponent(e.id) });
         }
       }
     }
     if (state.type === 'all' || state.type === 'manga') {
       for (const m of (manga?.rows || [])) {
         if (has(m.file, m.titleZh, m.titleJa, m.caseName)) {
-          res.push({ type: 'manga', title: `${m.file} ${m.titleZh}`, sub: m.titleJa, extra: `${m.year} · ${m.caseName}`, href: 'manga.html' });
+          res.push({ type: 'manga', title: `${m.file} ${m.titleZh}`, sub: m.titleJa, extra: `${m.year} · ${m.caseName}`, href: 'manga.html?file=' + encodeURIComponent(m.file) });
         }
       }
     }
     if (state.type === 'all' || state.type === 'movie') {
       for (const m of (movies?.regular || [])) {
         if (has(m.id, m.titleZh, m.titleJa, m.director, m.writer)) {
-          res.push({ type: 'movie', title: `${m.id} ${m.titleZh}`, sub: m.titleJa, extra: `${m.date} · 导演 ${m.director}`, href: 'movies.html' });
+          res.push({ type: 'movie', title: `${m.id} ${m.titleZh}`, sub: m.titleJa, extra: `${m.date} · 导演 ${m.director}`, href: 'movies.html?id=' + encodeURIComponent(m.id) });
         }
       }
     }
     if (state.type === 'all' || state.type === 'music') {
       for (const s2 of (music?.songs || [])) {
-        if (has(s2.code, s2.titleJa, s2.artist)) {
-          res.push({ type: 'music', title: `${s2.code} ${s2.titleJa}`, sub: s2.artist, extra: '', href: 'music.html' });
+        if (has(s2.code, s2.titleJa, s2.titleZh, s2.artist)) {
+          res.push({
+            type: 'music',
+            title: `${s2.code} ${s2.titleZh || s2.titleJa}`,
+            sub: s2.titleZh ? s2.titleJa : '',
+            extra: `演唱 ${s2.artist}`,
+            href: 'music.html?code=' + encodeURIComponent(s2.code),
+          });
         }
       }
     }
-    return res;
+    // 相关度排序：标题完全匹配 > 标题前缀 > 标题包含 > 副标题包含 > 仅正文命中
+    const rank = r => {
+      const t = String(r.title || '').toLowerCase();
+      if (t === s) return 0;
+      if (t.startsWith(s)) return 1;
+      if (t.includes(s)) return 2;
+      if (String(r.sub || '').toLowerCase().includes(s)) return 3;
+      return 4;
+    };
+    return res
+      .map((r, i) => ({ r, i, k: rank(r) }))
+      .sort((a, b) => a.k - b.k || a.i - b.i)
+      .map(x => x.r);
   }
 
   const TYPE_LABEL = { char: '角色', anime: '动画', manga: '漫画', movie: '剧场版', music: '音乐' };

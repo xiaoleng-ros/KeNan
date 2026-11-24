@@ -14,7 +14,9 @@
     byYear.get(r.year).push(r);
   }
 
-  const state = { year: 'all', q: '' };
+  // 支持从搜索结果直接定位：manga.html?file=File.1
+  const deepFile = new URLSearchParams(location.search).get('file') || '';
+  const state = { year: 'all', q: deepFile };
 
   function render() {
     const years = [...byYear.keys()].sort((a, b) => b - a);
@@ -26,7 +28,7 @@
       <div class="table-tools">
         <select id="yearSel">${opts}</select>
         <input type="search" id="qInput" placeholder="搜索标题 / 案件名 / 编号" value="${esc(state.q)}" style="width:230px">
-        <span class="count" id="cnt"></span>
+        <span class="count" id="cnt" aria-live="polite"></span>
       </div>
       <div id="list"></div>`;
     root.innerHTML = html;
@@ -43,8 +45,12 @@
       for (const y of yearsToShow) {
         let items = byYear.get(y);
         if (q) {
-          items = items.filter(r => [r.titleZh, r.titleJa, r.caseName, r.file, r.volume, r.caseNo]
-            .some(v => String(v || '').toLowerCase().includes(q)));
+          // 输入 File.N 这类完整编号时精确匹配，避免 File.1 命中 File.10 / File.100
+          const exactFile = /^file\.\d+$/i.test(q);
+          items = exactFile
+            ? items.filter(r => String(r.file || '').toLowerCase() === q)
+            : items.filter(r => [r.titleZh, r.titleJa, r.caseName, r.file, r.volume, r.caseNo]
+                .some(v => String(v || '').toLowerCase().includes(q)));
         }
         if (!items.length) continue;
         total += items.length;
@@ -65,7 +71,7 @@
             <div class="table-wrap">
               <table class="data-table">
                 <thead><tr>
-                  <th>编号</th><th>发表时间</th><th>所属事件</th><th>标题</th><th>分卷</th><th>对应动画</th>
+                  <th scope="col">编号</th><th scope="col">发表时间</th><th scope="col">所属事件</th><th scope="col">标题</th><th scope="col">分卷</th><th scope="col">对应动画</th>
                 </tr></thead>
                 <tbody>${trs}</tbody>
               </table>
@@ -88,4 +94,13 @@
   }
 
   render();
+
+  // 深链定位：高亮并滚动到命中的漫画行
+  if (deepFile) {
+    const row = document.querySelector('#list tbody tr');
+    if (row) {
+      row.classList.add('hit');
+      row.scrollIntoView({ block: 'center' });
+    }
+  }
 })();

@@ -124,7 +124,10 @@ img { max-width: 100%; }
   transition: all .18s ease;
   list-style: none;
 }
-.nav-drop:hover .menu { opacity: 1; visibility: visible; transform: translateY(0); }
+/* 悬停、键盘聚焦、点击展开三种方式都显示菜单 */
+.nav-drop:hover .menu,
+.nav-drop:focus-within .menu,
+.nav-drop.open .menu { opacity: 1; visibility: visible; transform: translateY(0); }
 .nav-drop .menu a {
   display: block;
   padding: 7px 12px;
@@ -659,6 +662,7 @@ mark { background: rgba(255, 214, 0, .38); color: inherit; padding: 0 1px; borde
   padding: 24px 26px;
   animation: popIn .22s cubic-bezier(.22, .61, .36, 1);
 }
+.modal:focus { outline: none; }
 @keyframes popIn { from { transform: translateY(14px) scale(.98); opacity: 0; } to { transform: none; opacity: 1; } }
 .modal-x {
   position: absolute;
@@ -739,6 +743,10 @@ mark { background: rgba(255, 214, 0, .38); color: inherit; padding: 0 1px; borde
   margin-bottom: 10px;
 }
 
+/* ---------- 搜索结果定位高亮 ---------- */
+.char-card.hit { outline: 2px solid var(--brand); outline-offset: 2px; }
+.data-table tr.hit td { background: rgba(255, 214, 0, .3); }
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 1100px) {
   .top-grid { grid-template-columns: 1fr; }
@@ -786,4 +794,18 @@ mark { background: rgba(255, 214, 0, .38); color: inherit; padding: 0 1px; borde
   #search-form { flex: 1; }
   .year-title, .data-table th { top: 0; }
   .table-wrap { max-height: none; }
+
+  /* 移动端：下拉菜单改为点击逐级展开，不再依赖悬停 */
+  .nav-menus.open .nav-drop .menu {
+    position: static;
+    display: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    box-shadow: none;
+    border: 0;
+    padding: 2px 0 6px 12px;
+    min-width: 0;
+  }
+  .nav-menus.open .nav-drop.open .menu { display: block; }
 }

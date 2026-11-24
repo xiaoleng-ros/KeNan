@@ -81,7 +81,7 @@ function renderNavbar() {
   if (!el) return;
   const menus = NAV.map(g => `
     <div class="nav-drop">
-      <button type="button">${esc(g.label)}</button>
+      <button type="button" aria-haspopup="true" aria-expanded="false">${esc(g.label)}</button>
       <ul class="menu">
         ${g.items.map(i => `<li><a href="${i.href}">${esc(i.text)}</a></li>`).join('')}
       </ul>
@@ -113,7 +113,42 @@ function renderNavbar() {
 
   const toggle = document.getElementById('navToggle');
   const menuBox = document.getElementById('navMenus');
-  if (toggle && menuBox) toggle.addEventListener('click', () => menuBox.classList.toggle('open'));
+  if (toggle && menuBox) {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.addEventListener('click', () => {
+      const open = menuBox.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  // 下拉菜单：桌面点击/键盘聚焦均可展开，移动端点击逐级展开
+  const drops = [...el.querySelectorAll('.nav-drop')];
+  /** 关闭除 except 之外的菜单，并同步 aria-expanded */
+  function closeDrops(except) {
+    for (const d of drops) {
+      if (d === except) continue;
+      d.classList.remove('open');
+      const b = d.querySelector('button');
+      if (b) b.setAttribute('aria-expanded', 'false');
+    }
+  }
+  for (const d of drops) {
+    const btn = d.querySelector('button');
+    if (!btn) continue;
+    btn.addEventListener('click', e => {
+      e.stopPropagation();
+      const open = d.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+      closeDrops(d);
+    });
+    d.addEventListener('keydown', e => {
+      if (e.key !== 'Escape') return;
+      d.classList.remove('open');
+      btn.setAttribute('aria-expanded', 'false');
+      btn.focus();
+    });
+  }
+  document.addEventListener('click', () => closeDrops());
 
   const form = document.getElementById('search-form');
   if (form) form.addEventListener('submit', e => {
@@ -128,6 +163,8 @@ function renderSidebar() {
   const el = document.getElementById('sidebar');
   if (!el) return;
   const cur = currentKey();
+  el.setAttribute('role', 'navigation');
+  el.setAttribute('aria-label', '站点导航');
   const sections = SIDEBAR_SECTIONS.map(sec => `
     <div class="side-title">${esc(sec.title)}</div>
     <ul class="side-nav">
@@ -181,14 +218,29 @@ async function loadData(name) {
   return _dataCache[name];
 }
 
-/** 高亮匹配文本 */
+/**
+ * 高亮匹配文本。
+ * 先按原文切分再逐段转义，避免对已转义的 HTML 实体（如 &amp;）内部再次匹配。
+ * @param {*} text 原文
+ * @param {string} q 关键词
+ * @returns {string} 可插入 innerHTML 的 HTML
+ */
 function mark(text, q) {
-  if (!q) return esc(text);
-  const safe = esc(text);
-  const needle = esc(q);
-  if (!needle) return safe;
+  const src = String(text == null ? '' : text);
+  const needle = String(q == null ? '' : q).trim();
+  if (!needle) return esc(src);
+
   const re = new RegExp(needle.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'gi');
-  return safe.replace(re, m => `<mark>${m}</mark>`);
+  let out = '';
+  let last = 0;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    // 空匹配时手动前进，防止正则死循环
+    if (m[0] === '') { re.lastIndex++; continue; }
+    out += esc(src.slice(last, m.index)) + '<mark>' + esc(m[0]) + '</mark>';
+    last = m.index + m[0].length;
+  }
+  return out + esc(src.slice(last));
 }
 
 document.addEventListener('DOMContentLoaded', initPage);
