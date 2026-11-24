@@ -78,7 +78,7 @@
     cnt.textContent = `共 ${items.length} 部`;
   }
 
-  document.getElementById('qInput').addEventListener('input', e => { state.q = e.target.value; draw(); });
+  document.getElementById('qInput').addEventListener('input', debounce(e => { state.q = e.target.value; draw(); }));
   draw();
 
   // 深链定位：高亮并滚动到命中的剧场版行

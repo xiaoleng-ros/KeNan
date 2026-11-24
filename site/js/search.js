@@ -3,15 +3,33 @@
    =========================================================== */
 (async () => {
   const root = document.getElementById('pageRoot');
-  const [manga, anime, movies, music, chars] = await Promise.all([
-    loadData('manga'), loadData('anime'), loadData('movies'), loadData('music'), loadData('characters'),
-  ]);
 
   const q = new URLSearchParams(location.search).get('q') || '';
   const sub = document.getElementById('pageSub');
   if (sub) sub.textContent = q ? `“${q}” 的搜索结果` : '输入关键词，检索角色、动画、漫画、剧场版与音乐。';
 
-  const state = { q, type: 'all' };
+  const state = { q, type: 'all', shown: 60 };
+  let store = null;
+  let loading = null;
+
+  /**
+   * 按需加载：没有关键词时不请求任何 JSON，
+   * 首次检索时才并行拉取，减少空白搜索页的 520KB 流量。
+   */
+  function ensureData() {
+    if (store) return Promise.resolve(store);
+    if (!loading) {
+      loading = Promise.all([
+        loadData('manga'), loadData('anime'), loadData('movies'), loadData('music'), loadData('characters'),
+      ]).then(([manga, anime, movies, music, chars]) => {
+        store = { manga, anime, movies, music, chars };
+        return store;
+      });
+    }
+    return loading;
+  }
+
+  if (q) await ensureData();
 
   const TYPES = [
     { key: 'all', label: '全部' },
@@ -27,6 +45,7 @@
     const s = query.trim().toLowerCase();
     if (!s) return [];
     const has = (...vals) => vals.some(v => String(v || '').toLowerCase().includes(s));
+    const { chars, anime, manga, movies, music } = store || {};
     const res = [];
 
     if (state.type === 'all' || state.type === 'char') {
@@ -108,6 +127,11 @@
         out.innerHTML = '<p style="color:#8d949f">输入关键词开始搜索。</p>';
         return;
       }
+      if (!store) {
+        out.innerHTML = '<p style="color:#8d949f">正在载入资料…</p>';
+        ensureData().then(draw);
+        return;
+      }
       const res = run(state.q);
       if (!res.length) {
         out.innerHTML = `<p style="color:#8d949f">没有找到与“${esc(state.q)}”相关的内容。</p>`;
@@ -117,7 +141,7 @@
       const counts = {};
       for (const r of res) counts[r.type] = (counts[r.type] || 0) + 1;
 
-      const items = res.slice(0, MAX).map(r => `
+      const items = res.slice(0, state.shown).map(r => `
         <a class="s-item" href="${r.href}">
           <span class="s-badge s-${r.type}">${TYPE_LABEL[r.type]}</span>
           <span class="s-body">
@@ -128,15 +152,21 @@
         </a>`).join('');
 
       const summary = Object.entries(counts).map(([k, v]) => `${TYPE_LABEL[k]} ${v}`).join(' · ');
+      const rest = res.length - state.shown;
 
       out.innerHTML = `
-        <p class="s-count">共 ${res.length} 条结果（${summary}）${res.length > MAX ? `，显示前 ${MAX} 条` : ''}</p>
-        <div class="s-list">${items}</div>`;
+        <p class="s-count">共 ${res.length} 条结果（${summary}）</p>
+        <div class="s-list">${items}</div>
+        ${rest > 0 ? `<div class="s-more-wrap"><button type="button" id="moreBtn" class="s-more">加载更多（剩余 ${rest} 条）</button></div>` : ''}`;
+
+      const more = document.getElementById('moreBtn');
+      if (more) more.addEventListener('click', () => { state.shown += MAX; draw(); });
     }
 
     document.getElementById('sForm').addEventListener('submit', e => {
       e.preventDefault();
       state.q = document.getElementById('sInput').value;
+      state.shown = MAX;
       const u = new URL(location.href);
       u.searchParams.set('q', state.q);
       history.replaceState(null, '', u);
@@ -148,6 +178,7 @@
     out.parentElement.querySelectorAll('.s-tab').forEach(b => {
       b.addEventListener('click', () => {
         state.type = b.dataset.k;
+        state.shown = MAX;
         out.parentElement.querySelectorAll('.s-tab').forEach(x => x.classList.toggle('on', x === b));
         draw();
       });

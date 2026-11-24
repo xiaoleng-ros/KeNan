@@ -8,18 +8,25 @@ const SITE = {
   tagline: 'CONAN WORLD',
 };
 
-/** 导航结构 */
+/**
+ * 站点页面单一数据源：顶部导航、侧栏、页脚均由这里派生，
+ * 新增页面只改这一处，避免文案/链接四处不同步。
+ */
+const PAGES = [
+  { key: 'index', text: '首页', href: 'index.html', section: '作品', nav: true },
+  { key: 'manga', text: '原作漫画', href: 'manga.html', section: '作品', nav: true },
+  { key: 'anime', text: '电视动画', href: 'anime.html', section: '作品', nav: true },
+  { key: 'movies', text: '剧场版', href: 'movies.html', section: '作品', nav: true },
+  { key: 'music', text: '音乐', href: 'music.html', section: '作品', nav: true },
+  { key: 'characters', text: '角色', sideText: '角色名录', footerText: '角色名录', href: 'characters.html', section: '资料', nav: true },
+  { key: 'about', text: '本站说明', href: 'about.html', section: '资料', nav: false },
+];
+
+/** 导航结构（由 PAGES 派生） */
 const NAV = [
   {
     label: '导航',
-    items: [
-      { text: '首页', href: 'index.html' },
-      { text: '原作漫画', href: 'manga.html' },
-      { text: '电视动画', href: 'anime.html' },
-      { text: '剧场版', href: 'movies.html' },
-      { text: '角色', href: 'characters.html' },
-      { text: '音乐', href: 'music.html' },
-    ],
+    items: PAGES.filter(p => p.nav).map(p => ({ text: p.text, href: p.href })),
   },
   {
     label: '关于',
@@ -30,37 +37,15 @@ const NAV = [
   },
 ];
 
-/** 侧栏分组（与原站导航一致） */
-const SIDEBAR_SECTIONS = [
-  {
-    title: '作品',
-    links: [
-      { text: '首页', href: 'index.html', key: 'index' },
-      { text: '原作漫画', href: 'manga.html', key: 'manga' },
-      { text: '电视动画', href: 'anime.html', key: 'anime' },
-      { text: '剧场版', href: 'movies.html', key: 'movies' },
-      { text: '音乐', href: 'music.html', key: 'music' },
-    ],
-  },
-  {
-    title: '资料',
-    links: [
-      { text: '角色名录', href: 'characters.html', key: 'characters' },
-      { text: '本站说明', href: 'about.html', key: 'about' },
-    ],
-  },
-];
+/** 侧栏分组（由 PAGES 派生，与原站导航一致） */
+const SIDEBAR_SECTIONS = ['作品', '资料'].map(title => ({
+  title,
+  links: PAGES.filter(p => p.section === title)
+    .map(p => ({ text: p.sideText || p.text, href: p.href })),
+}));
 
-/** 页脚链接 */
-const FOOTER_LINKS = [
-  { text: '首页', href: 'index.html' },
-  { text: '原作漫画', href: 'manga.html' },
-  { text: '电视动画', href: 'anime.html' },
-  { text: '剧场版', href: 'movies.html' },
-  { text: '角色名录', href: 'characters.html' },
-  { text: '音乐', href: 'music.html' },
-  { text: '本站说明', href: 'about.html' },
-];
+/** 页脚链接（由 PAGES 派生） */
+const FOOTER_LINKS = PAGES.map(p => ({ text: p.footerText || p.text, href: p.href }));
 
 /** HTML 转义 */
 function esc(s) {
@@ -171,7 +156,7 @@ function renderSidebar() {
       ${sec.links.map(l => `<li><a href="${l.href}" class="${l.href === cur ? 'active' : ''}">${esc(l.text)}</a></li>`).join('')}
     </ul>`).join('');
   el.innerHTML = `
-    <div class="side-logo"><a href="index.html"><img src="assets/img/conan.png" alt="${esc(SITE.name)}"></a></div>
+    <div class="side-logo"><a href="index.html"><img src="assets/img/conan.png" width="52" height="52" alt="${esc(SITE.name)}"></a></div>
     ${sections}`;
 }
 
@@ -203,19 +188,34 @@ function initPage() {
   if (y) y.textContent = new Date().getFullYear();
 }
 
-/** 加载 JSON 数据（带缓存，避免重复请求） */
+/** 加载 JSON 数据（成功才缓存，失败不缓存以便重试） */
 const _dataCache = {};
 async function loadData(name) {
   if (_dataCache[name]) return _dataCache[name];
   try {
-    const r = await fetch(`data/${name}.json`);
+    const r = await fetch(`data/${name}.json`, { cache: 'no-cache' });
     if (!r.ok) throw new Error('HTTP ' + r.status);
     _dataCache[name] = await r.json();
+    return _dataCache[name];
   } catch (e) {
+    // 失败不写入缓存：刷新或再次进入页面时可以重新请求
     console.error('数据加载失败:', name, e);
-    _dataCache[name] = null;
+    return null;
   }
-  return _dataCache[name];
+}
+
+/**
+ * 防抖：停止触发 wait 毫秒后执行，统一全站输入筛选节奏。
+ * @param {Function} fn 目标函数
+ * @param {number} wait 等待毫秒数
+ * @returns {Function} 包装后的函数
+ */
+function debounce(fn, wait = 180) {
+  let timer = null;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn(...args), wait);
+  };
 }
 
 /**

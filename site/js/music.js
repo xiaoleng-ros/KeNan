@@ -78,16 +78,16 @@
           <td class="num"><b>${mark(s.code, q)}</b></td>
           <td>${mark(s.titleJa, q)}${s.titleZh ? `<div class="ja">${mark(s.titleZh, q)}</div>` : ''}</td>
           <td>${mark(s.artist, q)}</td>
-          <td>${mark(s.lyricist, q)}</td>
-          <td>${mark(s.composer, q)}</td>
-          <td>${mark(s.arranger, q)}</td>
+          <td>${s.lyricist ? mark(s.lyricist, q) : '—'}</td>
+          <td>${s.composer ? mark(s.composer, q) : '—'}</td>
+          <td>${s.arranger ? mark(s.arranger, q) : '—'}</td>
           <td>${mark(s.range, q)}</td>
         </tr>`).join('') || '<tr><td colspan="7" style="color:#8d949f">没有匹配的记录。</td></tr>';
 
       cnt.textContent = `共 ${items.length} 首`;
     }
 
-    document.getElementById('qInput').addEventListener('input', e => { state.q = e.target.value; draw(); });
+    document.getElementById('qInput').addEventListener('input', debounce(e => { state.q = e.target.value; draw(); }));
     document.getElementById('kindSel').addEventListener('change', e => { state.kind = e.target.value; draw(); });
     draw();
 

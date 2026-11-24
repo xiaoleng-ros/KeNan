@@ -18,6 +18,13 @@ const ENTRIES = [
   { text: '关联作品', href: 'about.html' },
 ];
 
+/** 首页顶栏日期：用浏览器当天日期，避免展示抓取快照的旧日期 */
+const _now = new Date();
+const today = {
+  day: String(_now.getDate()),
+  month: _now.toLocaleString('en-US', { month: 'short' }),
+};
+
 /** 卡片配色 */
 const CARD_STYLE = {
   manga: 'u-green',
@@ -99,7 +106,7 @@ function renderCard(c) {
     </div>
 
     <div class="top-header">
-      <div class="top-date"><span class="day">${esc(d.day)}</span> ${esc(d.month)}</div>
+      <div class="top-date"><span class="day">${esc(today.day)}</span> ${esc(today.month)}</div>
       <div class="top-greeting"><a href="${esc(d.greetingLink || 'anime.html')}">${esc(d.greetingText || '')}</a></div>
     </div>
 

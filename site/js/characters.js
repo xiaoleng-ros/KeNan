@@ -14,6 +14,35 @@
   const groups = [];
   for (const c of chars) if (!groups.includes(c.group)) groups.push(c.group);
 
+  /**
+   * 角色目录分类：把细分组归入大类。
+   * 数组顺序即目录章节顺序，最后一项兜底「其他」。
+   */
+  const CATEGORY_RULES = [
+    { name: '常驻角色', test: /主要角色|工藤家|妃法律事务所|波洛咖啡厅|伊吕波寿司店/ },
+    { name: '黑衣组织', test: /黑衣组织/ },
+    { name: '情报机构', test: /^(FBI|CIA|MI6)/ },
+    { name: '警察与司法', test: /警视厅|警察厅|检察厅|府警|县警|道警|警察学校/ },
+    { name: '学校', test: /高中|小学/ },
+    { name: '职场与团体', test: /财团|医院|拉面店|书店|珠宝店|将棋手|足球运动员|魔术师|艺人|知名人士/ },
+    { name: '亲友与其他', test: /亲属与友人|宠物|虚构角色/ },
+    { name: '其他', test: /[\s\S]*/ },
+  ];
+
+  /** group -> { no: '1.1', catIndex, catName } */
+  const groupMeta = new Map();
+  {
+    let catIndex = -1;
+    let sub = 0;
+    for (const g of groups) {
+      const idx = CATEGORY_RULES.findIndex(r => r.test.test(g));
+      const safe = idx >= 0 ? idx : CATEGORY_RULES.length - 1;
+      if (safe !== catIndex) { catIndex = safe; sub = 0; }
+      sub += 1;
+      groupMeta.set(g, { catIndex, catName: CATEGORY_RULES[catIndex].name, no: `${catIndex + 1}.${sub}` });
+    }
+  }
+
   function render() {
     const opts = ['<option value="all">全部分组</option>']
       .concat(groups.map(g => `<option value="${esc(g)}" ${state.group === g ? 'selected' : ''}>${esc(g)}</option>`))
@@ -49,7 +78,7 @@
                title="点击查看完整资料">
             <div class="char-avatar">
               <img src="${esc((avatars && avatars[c.nameZh]) || 'assets/img/placeholder.svg')}"
-                   alt="${esc(c.nameZh)}" loading="lazy"
+                   alt="${esc(c.nameZh)}" loading="lazy" width="76" height="76"
                    onerror="this.src='assets/img/placeholder.svg'">
             </div>
             <div class="char-info">
@@ -59,14 +88,69 @@
             </div>
           </div>`).join('');
 
+        const gi = groups.indexOf(g);
+        const meta = groupMeta.get(g);
         parts.push(`
-          <div class="char-group-title">${esc(g)}<span class="cnt">${items.length} 人</span></div>
+          <div class="char-group-title" id="g-${gi}"><span class="gno">${meta.no}</span>${esc(g)}<span class="cnt">${items.length} 人</span></div>
           <div class="char-grid">${cards}</div>`);
       }
 
       list.innerHTML = parts.join('') || '<p style="color:#8d949f">没有匹配的角色。</p>';
       cnt.textContent = `共 ${total} 名角色`;
       bindCards(list);
+    }
+
+    /**
+     * 生成左侧编号目录：大类 1..N，细分组 1.1..。
+     * 点击条目清空筛选并滚动到对应分组。
+     */
+    function buildToc(tries = 0) {
+      const old = document.getElementById('charToc');
+      if (old) old.remove();
+      const side = document.getElementById('sidebar');
+      // 侧栏由 site.js 在 DOMContentLoaded 渲染，未就绪时短暂重试
+      if (!side || !side.children.length) {
+        if (tries < 5) setTimeout(() => buildToc(tries + 1), 60);
+        return;
+      }
+
+      let lastCat = -1;
+      const rows = [];
+      for (let i = 0; i < groups.length; i++) {
+        const g = groups[i];
+        const m = groupMeta.get(g);
+        const n = chars.filter(c => c.group === g).length;
+        if (m.catIndex !== lastCat) {
+          lastCat = m.catIndex;
+          rows.push(`<li class="toc-cat"><a href="#g-${i}" data-index="${i}">${m.catIndex + 1} ${esc(m.catName)}</a></li>`);
+        }
+        rows.push(`<li><a class="toc-sub" href="#g-${i}" data-index="${i}">${m.no} ${esc(g)}<span class="toc-n">${n}</span></a></li>`);
+      }
+
+      const wrap = document.createElement('div');
+      wrap.id = 'charToc';
+      wrap.innerHTML = `<div class="side-title">角色目录</div><ul class="side-nav toc">${rows.join('')}</ul>`;
+      side.appendChild(wrap);
+
+      wrap.addEventListener('click', e => {
+        const a = e.target.closest('a[data-index]');
+        if (!a) return;
+        e.preventDefault();
+        const idx = Number(a.dataset.index);
+        // 目录定位需要看到全部分组：清空搜索与分组筛选
+        state.q = '';
+        state.group = 'all';
+        document.getElementById('qInput').value = '';
+        document.getElementById('groupSel').value = 'all';
+        draw();
+        const title = document.getElementById('g-' + idx);
+        if (title) {
+          title.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          title.classList.add('active');
+        }
+        wrap.querySelectorAll('a.active').forEach(x => x.classList.remove('active'));
+        a.classList.add('active');
+      });
     }
 
     // 角色详情弹窗
@@ -145,6 +229,7 @@
       timer = setTimeout(() => { state.q = e.target.value; draw(); }, 180);
     });
     draw();
+    buildToc();
   }
 
   render();

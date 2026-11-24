@@ -85,7 +85,7 @@
       cnt.textContent = `共 ${items.length} 集`;
     }
 
-    document.getElementById('qInput').addEventListener('input', e => { state.q = e.target.value; draw(); });
+    document.getElementById('qInput').addEventListener('input', debounce(e => { state.q = e.target.value; draw(); }));
     document.getElementById('kindSel').addEventListener('change', e => { state.kind = e.target.value; draw(); });
     document.getElementById('sortSel').addEventListener('change', e => { state.sort = e.target.value; draw(); });
     draw();

@@ -548,6 +548,18 @@ img { max-width: 100%; }
 }
 .char-group-title:first-of-type { margin-top: 0; }
 .char-group-title .cnt { font-size: .78rem; font-weight: 500; color: #98a0ac; margin-left: 8px; }
+.char-group-title .gno { color: #8d949f; font-size: .74em; font-weight: 600; margin-right: 9px; }
+.char-group-title.active { background: rgba(74, 102, 194, .1); border-radius: 4px; padding-left: 8px; }
+
+/* ---------- 角色页编号目录 ---------- */
+#charToc { margin-top: 22px; }
+#charToc .side-title { margin-top: 0; }
+#charToc .side-nav { font-size: .82rem; }
+.toc-cat > a { font-weight: 700; color: #2f3b52; padding: 7px 10px; }
+.toc-sub { padding-left: 22px !important; font-size: .8rem; }
+.toc-n { float: right; color: #a6adb8; font-size: .72rem; padding-top: 2px; }
+.toc-cat.active > a,
+.toc-sub.active { color: var(--brand); background: rgba(74, 102, 194, .1); }
 
 /* ---------- 搜索页 ---------- */
 .s-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
@@ -747,6 +759,30 @@ mark { background: rgba(255, 214, 0, .38); color: inherit; padding: 0 1px; borde
 .char-card.hit { outline: 2px solid var(--brand); outline-offset: 2px; }
 .data-table tr.hit td { background: rgba(255, 214, 0, .3); }
 
+/* ---------- 搜索页加载更多 ---------- */
+.s-more-wrap { text-align: center; margin-top: 16px; }
+.s-more {
+  padding: 9px 26px;
+  font-size: .92rem;
+  color: var(--brand);
+  background: #fff;
+  border: 1px solid #dfe3e9;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.s-more:hover { border-color: var(--brand); background: rgba(74, 102, 194, .06); }
+
+/* ---------- 无 JS 提示 ---------- */
+.noscript-tip {
+  margin: 18px;
+  padding: 14px 18px;
+  border-radius: 10px;
+  background: #fff8e1;
+  border: 1px solid #ffe08a;
+  color: #6b5300;
+  font-size: .92rem;
+}
+
 /* ---------- 响应式 ---------- */
 @media (max-width: 1100px) {
   .top-grid { grid-template-columns: 1fr; }
@@ -766,6 +802,8 @@ mark { background: rgba(255, 214, 0, .38); color: inherit; padding: 0 1px; borde
   }
   #sidebar .side-nav { display: flex; flex-wrap: wrap; gap: 4px; }
   #sidebar .side-nav a { border-left: 0; border: 1px solid #e2e6ec; }
+  /* 移动端目录过长，改用页面上方的分组下拉选择 */
+  #charToc { display: none; }
   #main { padding: 18px 16px 50px; }
   .top-news-flex { flex-direction: column; }
   .top-nav-blocks { grid-template-columns: repeat(3, 1fr); }
