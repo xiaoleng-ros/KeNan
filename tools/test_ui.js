@@ -284,6 +284,15 @@ class WS {
   console.log(d15);
   check('动画深链定位到 TV12', d15.q === 'TV12' && d15.first === 'TV12' && d15.hit, d15);
 
+  await goto(BASE + '/music.html?code=OP1');
+  const d15b = await ev(`({
+    rows: document.querySelectorAll('.data-table tbody tr').length,
+    code: document.querySelector('.data-table tbody tr td')?.textContent.trim(),
+    hit: !!document.querySelector('.data-table tbody tr.hit')
+  })`);
+  console.log(d15b);
+  check('音乐深链定位到 OP1', d15b.rows === 1 && d15b.code === 'OP1' && d15b.hit, d15b);
+
   console.log('--- 16. 移动端菜单点击展开 ---');
   await ws.send('Emulation.setDeviceMetricsOverride', { width: 420, height: 820, deviceScaleFactor: 1, mobile: true });
   await goto(BASE + '/index.html');

@@ -72,7 +72,7 @@ node serve.js
 │   ├── with_browser.js          # 仅启动无头 Edge 执行 CDP 脚本
 │   ├── shoot.js                 # 渲染断言（默认不截图，--shot 才产出到临时目录）
 │   ├── check_icons.js           # 图片加载状态检查
-│   ├── test_ui.js               # 交互回归测试（34 条断言，失败退出码 1）
+│   ├── test_ui.js               # 交互回归测试（35 条断言，失败退出码 1）
 │   ├── debug_layout.js          # 元素盒模型调试
 │   └── shrink_avatars.js        # 旧方案（该站未开放缩略图，已弃用）
 │
@@ -229,7 +229,7 @@ node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器�
 ```
 
 当前状态：8 个页面全部 HTTP 200，链接完整性 `bad: []`，
-34 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
+35 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
 
 ---
 
