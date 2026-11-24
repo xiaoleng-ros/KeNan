@@ -27,7 +27,12 @@ Thumbs.db
 # （shoot.js 默认已不写截图到项目内，这里是兜底）
 shots/
 _old/
-_old/avatars-png/          # optimize_avatars.js 生成的原图备份
+# optimize_avatars.js 生成的原图备份
+_old/avatars-png/
+
+# 评审/分享等过程目录，不进仓库
+2026-*/
+.trae-html-share-packages/
 
 # 部署产物（deploy/ 里手写脚本和配置要提交，打出来的包不进仓库）
 keNan-site.zip
