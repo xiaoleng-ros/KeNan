@@ -1,0 +1,16 @@
+{
+  "name": "kenan-world",
+  "version": "1.0.0",
+  "private": true,
+  "description": "名侦探柯南资料站（纯静态）",
+  "scripts": {
+    "serve": "node site/serve.js",
+    "test": "node tools/regress.js tools/test_ui.js",
+    "check:pages": "node tools/check_pages.js",
+    "pack": "node deploy/pack.js",
+    "sitemap": "node tools/make_sitemap.js"
+  },
+  "devDependencies": {
+    "sharp": "0.33.5"
+  }
+}
