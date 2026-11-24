@@ -32,8 +32,9 @@ node serve.js
 | 剧场版 | `movies.html` | 剧场版档案表 | 29 部 |
 | 角色名录 | `characters.html` | 44 个分组卡片，点击看详情 | 162 名角色 |
 | 音乐 | `music.html` | 主题曲 / 片尾曲 / 插曲等 | 167 首 |
-| 搜索 | `search.html` | 跨 5 个数据集统一检索 | — |
+| 搜索 | `search.html` | 跨 5 个数据集统一检索，结果可深链定位 | — |
 | 关于 | `about.html` | 站点说明与数据统计 | — |
+| 404 | `404.html` | 自定义错误页，带返回入口 | — |
 
 **合计 2351 条真实条目**，全部来自原站 MediaWiki 内容，非虚构。
 
@@ -43,15 +44,17 @@ node serve.js
 
 ```
 .
+├── package.json              # 仅开发脚本与 sharp 依赖，站点本身无需安装
 ├── site/                     # 站点本体（可直接部署）
-│   ├── *.html                # 8 个页面
-│   ├── serve.js              # 本地静态服务器
+│   ├── *.html                # 8 个内容页 + 404.html
+│   ├── robots.txt            # 爬虫规则（sitemap 需填正式域名后生成）
+│   ├── serve.js              # 本地静态服务器（含目录逃逸防护与自定义 404）
 │   ├── css/main.css          # 全部样式（约 20KB）
 │   ├── js/
 │   │   ├── site.js           # 站点常量 + 导航/侧栏/页脚渲染
 │   │   ├── home.js  manga.js  anime.js  movies.js
 │   │   ├── characters.js  music.js  search.js  about.js
-│   ├── data/*.json           # 内容数据（7 个文件，520KB）
+│   ├── data/*.json           # 内容数据（7 个文件，514KB）
 │   ├── favicon.ico           # 多尺寸 ICO（16/32/48）
 │   ├── favicon-16/32/48.png   # 各尺寸 PNG
 │   ├── apple-touch-icon.png   # iOS 180×180（不透明蓝底）
@@ -72,7 +75,9 @@ node serve.js
 │   ├── with_browser.js          # 仅启动无头 Edge 执行 CDP 脚本
 │   ├── shoot.js                 # 渲染断言（默认不截图，--shot 才产出到临时目录）
 │   ├── check_icons.js           # 图片加载状态检查
-│   ├── test_ui.js               # 交互回归测试（35 条断言，失败退出码 1）
+│   ├── check_pages.js           # 校验 9 个页面的骨架与 head 一致性
+│   ├── make_sitemap.js          # 生成 sitemap.xml（需 --base 正式域名）
+│   ├── test_ui.js               # 交互回归测试（45 条断言，失败退出码 1）
 │   ├── debug_layout.js          # 元素盒模型调试
 │   └── shrink_avatars.js        # 旧方案（该站未开放缩略图，已弃用）
 │
@@ -92,7 +97,7 @@ node serve.js
 `deploy/README.md` 有完整的 1Panel + OpenResty 部署步骤，要点：
 
 - 纯静态站，**只需 OpenResty**，不需要 Node 运行时和数据库
-- **必须开 gzip** —— `data/` 有 520KB JSON，不压缩传输体积差 4 倍多
+- **必须开 gzip** —— `data/` 有 514KB JSON，不压缩传输体积差 4 倍多
 - 传完先验证 `data/characters.json` 是否 200。若 404，页面框架会出来但内容一片空白（最容易踩的坑）
 - 服务器上拉仓库的话用 sparse-checkout 只取 `site/`：
 
@@ -199,6 +204,16 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 
 ## 验证
 
+仓库根目录的 `package.json` 提供了快捷命令（站点本身不依赖 npm）：
+
+```bash
+npm test              # 等价于 node tools/regress.js tools/test_ui.js
+npm run check:pages   # 校验 9 个页面的骨架与 head 一致性
+npm run serve         # 本地预览（4173）
+npm run pack          # 打包 site/ 为 zip
+npm run sitemap -- --base https://你的域名/
+```
+
 ```bash
 # 一站式回归（自动起服务 + 无头浏览器，跑完自动关闭）
 node tools/regress.js tools/test_ui.js
@@ -228,8 +243,12 @@ cd site && node serve.js                    # 起服务
 node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器）
 ```
 
-当前状态：8 个页面全部 HTTP 200，链接完整性 `bad: []`，
-35 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
+当前状态：9 个页面（含 404）骨架校验 0 问题，链接完整性 `bad: []`，
+45 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
+
+> `sitemap.xml` 需要正式域名才能生成（避免写入错误链接），
+> 用 `npm run sitemap -- --base https://你的域名/` 生成后再上传到 `site/`。
+> 未生成时 `robots.txt` 只声明抓取规则，不影响收录。
 
 ---
 
