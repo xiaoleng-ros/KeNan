@@ -145,6 +145,15 @@ class WS {
   console.log(c4);
   check('角色筛选有结果', c4.cards > 0, c4);
   check('角色头像地址存在', c4.imgOk, c4);
+  const toc4 = await ev(`({
+    items: document.querySelectorAll('#charToc a[data-index]').length,
+    cats: document.querySelectorAll('#charToc .toc-cat').length,
+    first: document.querySelector('#charToc a[data-index]')?.textContent.trim(),
+    gno: document.querySelector('.char-group-title .gno')?.textContent.trim()
+  })`);
+  console.log(toc4);
+  check('角色页生成编号目录（44 组 + 7 大类）', toc4.items === 51 && toc4.cats === 7, toc4);
+  check('分组标题带编号', /^\d+\.\d+$/.test(String(toc4.gno || '')), toc4);
 
   console.log('--- 5. 剧场版筛选「M2」 ---');
   await goto(BASE + '/movies.html');
@@ -164,6 +173,7 @@ class WS {
   check('降序首行为 TV1186', a6.first === 'TV1186', a6);
 
   console.log('--- 7. 导航栏下拉菜单 ---');
+  await goto(BASE + '/index.html');
   const n7 = await ev(`({
     drops: document.querySelectorAll('.nav-drop').length,
     firstMenuItems: [...document.querySelectorAll('.nav-drop .menu a')].slice(0,4).map(a=>a.textContent.trim()),
@@ -174,6 +184,9 @@ class WS {
   check('导航有两个下拉组', n7.drops === 2, n7);
   check('下拉菜单有链接', n7.firstMenuItems.includes('首页'), n7);
   check('站点 Logo 加载成功', n7.brandLoaded, n7);
+  const day7 = await ev(`({day: document.querySelector('.top-date .day')?.textContent.trim(), expect: String(new Date().getDate())})`);
+  console.log(day7);
+  check('首页日期显示当天', day7.day === day7.expect, day7);
 
   console.log('--- 8. 链接完整性 ---');
   await goto(BASE + '/index.html');
@@ -185,6 +198,22 @@ class WS {
   })()`);
   console.log(l8);
   check('站内链接全部可访问', l8.bad.length === 0, l8);
+
+  console.log('--- 8b. 404 / robots / noscript ---');
+  await goto(BASE + '/no-such-page.html');
+  const e404 = await ev(`({
+    h1: document.querySelector('h1')?.textContent.trim(),
+    back: !!document.querySelector('a[href="index.html"]'),
+    nav: !!document.querySelector('#navbar a'),
+    noscript: !!document.querySelector('noscript')
+  })`);
+  console.log(e404);
+  check('自定义 404 页可用', String(e404.h1 || '').includes('404') && e404.back && e404.nav, e404);
+  await goto(BASE + '/index.html');
+  const rb = await ev(`fetch('robots.txt').then(r => r.text()).then(t => ({ ok: true, allow: /Allow: \\//.test(t) })).catch(() => ({ ok: false }))`);
+  console.log(rb);
+  check('robots.txt 可访问且允许抓取', rb.ok && rb.allow, rb);
+  check('页面包含 noscript 兜底', e404.noscript, e404);
 
   console.log('--- 9. 角色详情弹窗 ---');
   await goto(BASE + '/characters.html');
@@ -257,8 +286,26 @@ class WS {
   const mu12c = await ev(`({rows: document.querySelectorAll('.data-table tbody tr').length, code: document.querySelector('.data-table tbody tr td')?.textContent.trim()})`);
   console.log(mu12c);
   check('音乐编号精确匹配', mu12c.rows === 1 && mu12c.code === 'OP1', mu12c);
+  await ev(`(()=>{const i=document.getElementById('qInput');i.value='MT23';i.dispatchEvent(new Event('input'));return 1})()`);
+  await new Promise(r => setTimeout(r, 600));
+  const mu12d = await ev(`({rows: document.querySelectorAll('.data-table tbody tr').length, arranger: document.querySelector('.data-table tbody tr td:nth-child(6)')?.textContent.trim()})`);
+  console.log(mu12d);
+  check('音乐空编曲显示占位符', mu12d.rows === 1 && mu12d.arranger === '—', mu12d);
 
   console.log('--- 13/14/15. 搜索结果定位 ---');
+  await goto(BASE + '/search.html');
+  const emptyLoad = await ev(`({jsons: performance.getEntriesByType('resource').filter(e => /\\/data\\/.+\\.json/.test(e.name)).length, tip: document.querySelector('#pageRoot')?.textContent.trim().slice(0, 20)})`);
+  console.log(emptyLoad);
+  check('空搜索页不加载数据 JSON', emptyLoad.jsons === 0, emptyLoad);
+
+  await goto(BASE + '/search.html?q=' + encodeURIComponent('柯南'));
+  const beforeMore = await ev(`({items: document.querySelectorAll('.s-item').length, more: !!document.getElementById('moreBtn')})`);
+  await ev(`(()=>{document.getElementById('moreBtn')?.click();return 1})()`);
+  await new Promise(r => setTimeout(r, 400));
+  const afterMore = await ev(`({items: document.querySelectorAll('.s-item').length})`);
+  console.log(beforeMore, afterMore);
+  check('搜索结果支持加载更多', beforeMore.more && afterMore.items > beforeMore.items, { beforeMore, afterMore });
+
   await goto(BASE + '/search.html?q=' + encodeURIComponent('毛利兰'));
   const href13 = await ev(`document.querySelector('.s-item')?.getAttribute('href')`);
   const first13 = await ev(`document.querySelector('.s-item .s-title')?.textContent.trim()`);
@@ -274,6 +321,20 @@ class WS {
   })`);
   console.log(d14);
   check('角色深链滚动并高亮目标卡片', d14.cards > 0 && String(d14.hitName || '').includes('毛利兰') && d14.q === '', d14);
+
+  const tocJump = await ev(`(()=>{
+    const links = [...document.querySelectorAll('#charToc a[data-index]')];
+    const last = links[links.length - 1];
+    last.click();
+    return {
+      active: last.classList.contains('active'),
+      titleActive: !!document.querySelector('.char-group-title.active'),
+      hash: location.hash,
+      cards: document.querySelectorAll('.char-card').length
+    };
+  })()`);
+  console.log(tocJump);
+  check('目录点击可定位分组并恢复全部角色', tocJump.active && tocJump.titleActive && tocJump.cards > 100 && tocJump.hash === '', tocJump);
 
   await goto(BASE + '/anime.html?id=TV12');
   const d15 = await ev(`({
