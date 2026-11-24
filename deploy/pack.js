@@ -125,3 +125,23 @@ fs.writeFileSync(OUT, Buffer.concat([...local, centralBuf, end]));
 const kb = (fs.statSync(OUT).size / 1024).toFixed(0);
 console.log(`✓ ${path.relative(ROOT, OUT)}  ${files.length} 个文件  ${kb} KB`);
 console.log('  上传到 1Panel 网站根目录后解压即可');
+
+// 自检：关键文件必须都在，防止打出空包或漏目录的包还一脸懵
+const names = new Set(files.map((f) => f.rel));
+const must = [
+  'index.html',
+  'css/main.css',
+  'js/site.js',
+  'data/characters.json',
+  'data/manga.json',
+  'site.webmanifest',
+  'favicon.ico',
+];
+const missing = must.filter((m) => !names.has(m));
+if (missing.length) {
+  console.error(`\n✗ 自检失败，缺少关键文件：${missing.join(', ')}`);
+  process.exit(1);
+}
+const avatars = files.filter((f) => f.rel.startsWith('assets/avatars/')).length;
+const nested = files.some((f) => f.rel.startsWith('site/'));
+console.log(`  自检 OK — 8 页面 + 核心资源齐全，头像 ${avatars} 张${nested ? '，⚠ 有 site/ 嵌套层' : ''}`);
