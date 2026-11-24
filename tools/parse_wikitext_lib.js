@@ -318,26 +318,61 @@ async function parseManga() {
 }
 
 // ============ 电视动画 ============
+/**
+ * 根据表头识别动画表的列索引。
+ * 常规集数表为「原版集数/拆分版集数/中文标题/日文标题/首播时间/首播家庭收视率/对应漫画/备注」；
+ * 特别篇表（SPTV）为「编号/中文标题/日文标题/首播时间/首播档期/播出时长/首播家庭收视率/备注」，
+ * 少了「拆分版集数」，按固定列位会让标题、日期、收视率整体前移一列。
+ * @param {string} tableSrc 单张表的 wikitext 源码
+ * @returns {Object|null} 列索引映射；必需列识别不全时返回 null
+ */
+function animeColumns(tableSrc) {
+  const heads = tableSrc.replace(/\r/g, '').split('\n')
+    .filter(line => /^\s*!/.test(line))
+    .map(line => pc(line.replace(/^\s*!/, '')));
+  if (heads.length < 4) return null;
+
+  const find = (...keys) => heads.findIndex(h => keys.some(k => h.includes(k)));
+  const cols = {
+    id: find('原版集数', '编号'),
+    splitNo: find('拆分版'),
+    titleZh: find('中文标题'),
+    titleJa: find('日文标题'),
+    date: find('首播时间'),
+    rating: find('收视率'),
+    manga: find('对应漫画'),
+    note: find('备注'),
+  };
+  const required = ['id', 'titleZh', 'titleJa', 'date'];
+  return required.every(k => cols[k] >= 0) ? cols : null;
+}
+
 async function parseAnime() {
   const wt = await getWikitext('名侦探柯南电视动画');
   const out = { eps: [] };
   for (const t of extractTables(wt)) {
+    // 优先按表头定位；识别失败时回退到旧版固定列位
+    const cols = animeColumns(t) || {
+      id: 0, splitNo: 1, titleZh: 2, titleJa: 3, date: 4, rating: 5, manga: 6, note: 7,
+    };
     for (const raw of fillSpans(expandRowspans(parseTable(t)))) {
-      if (isHeaderRow(raw) || raw.length < 5) continue;
+      if (isHeaderRow(raw) || raw.length < 3) continue;
       const cells = raw.map(cleanCell);
-      const raw0 = pc(cells[0]);
+      // 按映射取列；缺列时返回空串
+      const at = key => (cols[key] >= 0 ? pc(cells[cols[key]] || '') : '');
+      const raw0 = at('id');
       const id = /^(TV|SPTV)\d+$/i.test(raw0) ? raw0.toUpperCase()
         : (/^\d+$/.test(raw0) ? 'TV' + raw0 : '');
       if (!id) continue;
       out.eps.push({
         id,
-        splitNo: pc(cells[1]),
-        titleZh: pc(cells[2]),
-        titleJa: pc(cells[3]),
-        date: (pc(cells[4]) || '').split(/\s|\n/)[0],
-        rating: pc(cells[5] || ''),
-        manga: pc(cells[6] || ''),
-        note: pc(cells[7] || ''),
+        splitNo: at('splitNo'),
+        titleZh: at('titleZh'),
+        titleJa: at('titleJa'),
+        date: (at('date') || '').split(/\s|\n/)[0],
+        rating: at('rating'),
+        manga: at('manga'),
+        note: at('note'),
       });
     }
   }
@@ -348,20 +383,60 @@ async function parseAnime() {
 }
 
 // ============ 音乐 ============
+/**
+ * 根据表头文本识别音乐表的列索引。
+ * 背景：上游表格实际列为「编号/曲名/对应剧集/主创、演唱/作词/作曲/编曲」，
+ * 旧版按固定列位取 cells[2] 当演唱者，实际取到的是「对应剧集」，导致字段整体错位。
+ * @param {string} tableSrc 单张表的 wikitext 源码
+ * @returns {Object|null} 列索引映射；关键列识别不全时返回 null
+ */
+function musicColumns(tableSrc) {
+  const heads = tableSrc.replace(/\r/g, '').split('\n')
+    .filter(line => /^\s*!/.test(line))
+    .map(line => pc(line.replace(/^\s*!/, '')));
+  if (heads.length < 4) return null;
+
+  const find = (...keys) => heads.findIndex(h => keys.some(k => h.includes(k)));
+  const cols = {
+    code: find('编号'),
+    title: find('曲名', '歌名'),
+    range: find('对应剧集', '剧集'),
+    artist: find('主创', '演唱'),
+    lyricist: find('作词'),
+    composer: find('作曲'),
+    arranger: find('编曲'),
+  };
+  const required = ['code', 'title', 'artist', 'lyricist', 'composer', 'arranger'];
+  return required.every(k => cols[k] >= 0) ? cols : null;
+}
+
 async function parseMusic() {
   const wt = await getWikitext('名侦探柯南音乐');
   const out = { songs: [] };
   for (const t of extractTables(wt)) {
+    // 优先按表头定位；识别失败时回退到旧版固定列位
+    const cols = musicColumns(t) || {
+      code: 0, title: 1, range: 2, artist: 3, lyricist: 4, composer: 5, arranger: 6,
+    };
     for (const raw of fillSpans(expandRowspans(parseTable(t)))) {
       if (isHeaderRow(raw) || raw.length < 3) continue;
       const cells = raw.map(cleanCell);
-      const code = pc(cells[0]);
+      const code = pc(cells[cols.code]);
       if (!/^(OP|ED|MT|SPTM|SPC|OSCM|OST)\d+/i.test(code)) continue;
+
+      // 备注改为可读文本，替代旧版直接拼接原始管道符
+      const note = [
+        ['对应剧集', pc(cells[cols.range] || '')],
+        ['作词', pc(cells[cols.lyricist] || '')],
+        ['作曲', pc(cells[cols.composer] || '')],
+        ['编曲', pc(cells[cols.arranger] || '')],
+      ].filter(([, v]) => v).map(([k, v]) => `${k}：${v}`).join(' ｜ ');
+
       out.songs.push({
         code,
-        titleJa: pc(cells[1]),
-        artist: pc(cells[2]),
-        note: pc(cells.slice(3).join(' | ')),
+        titleJa: pc(cells[cols.title]),
+        artist: pc(cells[cols.artist] || ''),
+        note,
       });
     }
   }
