@@ -51,7 +51,7 @@ node serve.js
 │   │   ├── site.js           # 站点常量 + 导航/侧栏/页脚渲染
 │   │   ├── home.js  manga.js  anime.js  movies.js
 │   │   ├── characters.js  music.js  search.js  about.js
-│   ├── data/*.json           # 内容数据（7 个文件，512KB）
+│   ├── data/*.json           # 内容数据（7 个文件，520KB）
 │   ├── favicon.ico           # 多尺寸 ICO（16/32/48）
 │   ├── favicon-16/32/48.png   # 各尺寸 PNG
 │   ├── apple-touch-icon.png   # iOS 180×180（不透明蓝底）
@@ -72,7 +72,7 @@ node serve.js
 │   ├── with_browser.js          # 仅启动无头 Edge 执行 CDP 脚本
 │   ├── shoot.js                 # 渲染断言（默认不截图，--shot 才产出到临时目录）
 │   ├── check_icons.js           # 图片加载状态检查
-│   ├── test_ui.js               # 9 项交互回归测试
+│   ├── test_ui.js               # 交互回归测试（34 条断言，失败退出码 1）
 │   ├── debug_layout.js          # 元素盒模型调试
 │   └── shrink_avatars.js        # 旧方案（该站未开放缩略图，已弃用）
 │
@@ -92,7 +92,7 @@ node serve.js
 `deploy/README.md` 有完整的 1Panel + OpenResty 部署步骤，要点：
 
 - 纯静态站，**只需 OpenResty**，不需要 Node 运行时和数据库
-- **必须开 gzip** —— `data/` 有 512KB JSON，不压缩传输体积差 4 倍多
+- **必须开 gzip** —— `data/` 有 520KB JSON，不压缩传输体积差 4 倍多
 - 传完先验证 `data/characters.json` 是否 200。若 404，页面框架会出来但内容一片空白（最容易踩的坑）
 - 服务器上拉仓库的话用 sparse-checkout 只取 `site/`：
 
@@ -229,7 +229,7 @@ node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器�
 ```
 
 当前状态：8 个页面全部 HTTP 200，链接完整性 `bad: []`，
-9 项交互测试全通过，桌面（1440px）与移动（420px）双端布局验证通过。
+34 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
 
 ---
 
