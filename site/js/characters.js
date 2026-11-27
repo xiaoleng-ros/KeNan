@@ -199,6 +199,34 @@
         if (e.target === box || e.target.classList.contains('modal-x')) close();
       });
 
+      /**
+       * iOS sheet 的下滑关闭：在关闭按钮/遮罩之外的空白处按下拖动。
+       * 只在手指向下且超过阈值时关闭，避免误触；松手回弹。
+       */
+      let dragStartY = null;
+      box.addEventListener('touchstart', e => {
+        if (e.target.closest('.modal-x') || e.target.closest('a')) return;
+        // 弹窗内部已滚到底还要继续下拉时，才接管手势
+        if (modal.scrollTop > 0) return;
+        dragStartY = e.touches[0].clientY;
+        modal.style.transition = 'none';
+      }, { passive: true });
+      box.addEventListener('touchmove', e => {
+        if (dragStartY == null) return;
+        const dy = e.touches[0].clientY - dragStartY;
+        if (dy <= 0) { modal.style.transform = ''; return; }
+        // 阻尼：越往下拉越沉，符合 iOS 的橡皮筋手感
+        modal.style.transform = `translateY(${dy * 0.55}px)`;
+      }, { passive: true });
+      box.addEventListener('touchend', e => {
+        if (dragStartY == null) return;
+        const dy = (e.changedTouches[0] || {}).clientY - dragStartY;
+        modal.style.transition = '';
+        if (dy > 120) { modal.style.transform = ''; close(); return; }
+        modal.style.transform = '';
+        dragStartY = null;
+      }, { passive: true });
+
       // 键盘监听绑在弹窗节点上：节点移除即失效，不会在 document 上累积
       box.addEventListener('keydown', e => {
         if (e.key === 'Escape') { e.preventDefault(); close(); return; }

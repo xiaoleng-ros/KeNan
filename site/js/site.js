@@ -179,11 +179,50 @@ function renderFooter() {
     </div>`;
 }
 
+/**
+ * 导航栏滚动状态：滚动后加深玻璃与投影，
+ * 对应 iOS 的 scroll edge effect —— 控件与内容产生层次分离。
+ */
+function initScrollEdge() {
+  const nav = document.getElementById('navbar');
+  if (!nav) return;
+  let ticking = false;
+  const update = () => {
+    nav.classList.toggle('scrolled', window.scrollY > 8);
+    ticking = false;
+  };
+  // rAF 节流：滚动回调里只读 scrollY，避免布局抖动
+  window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(update);
+  }, { passive: true });
+  update();
+}
+
+/**
+ * 移动端点击导航外部时收起菜单。
+ * iOS 的浮层默认点外部关闭，不需要再点一次按钮。
+ */
+function initOutsideClose() {
+  const box = document.getElementById('navMenus');
+  const toggle = document.getElementById('navToggle');
+  if (!box || !toggle) return;
+  document.addEventListener('click', e => {
+    if (!box.classList.contains('open')) return;
+    if (box.contains(e.target) || toggle.contains(e.target)) return;
+    box.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }, true);
+}
+
 /** 页面初始化 */
 function initPage() {
   renderNavbar();
   renderSidebar();
   renderFooter();
+  initScrollEdge();
+  initOutsideClose();
   const y = document.getElementById('year');
   if (y) y.textContent = new Date().getFullYear();
 }

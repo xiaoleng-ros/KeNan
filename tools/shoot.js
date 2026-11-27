@@ -10,6 +10,7 @@
  *   node tools/shoot.js index
  *   node tools/shoot.js index --mobile
  *   node tools/shoot.js index --shot          # 截图到临时目录
+ *   node tools/shoot.js index --shot --dark   # 深色模式（模拟系统偏好）
  *   node tools/shoot.js index --shot=./out    # 显式指定输出目录
  */
 const http = require('http');
@@ -145,6 +146,8 @@ class WS {
   }
 
   const MOBILE = process.argv.includes('--mobile');
+  /** --dark 模拟系统深色偏好，验证 prefers-color-scheme 分支 */
+  const DARK = process.argv.includes('--dark');
   const VW = MOBILE ? 420 : 1440;
   const VH = MOBILE ? 900 : 1000;
   const MAXH = MOBILE ? 2400 : 5200;
@@ -169,6 +172,13 @@ class WS {
   await ws.send('Emulation.setDeviceMetricsOverride', {
     width: VW, height: VH, deviceScaleFactor: 1, mobile: MOBILE,
   });
+
+  // 深色模式：让页面里的 prefers-color-scheme / prefers-contrast 真正生效
+  if (DARK) {
+    await ws.send('Emulation.setEmulatedMedia', {
+      features: [{ name: 'prefers-color-scheme', value: 'dark' }],
+    });
+  }
 
   if (SHOT) fs.mkdirSync(SHOT_DIR, { recursive: true });
 
@@ -213,7 +223,7 @@ class WS {
     });
     await new Promise(r => setTimeout(r, 900));
     const shot = await ws.send('Page.captureScreenshot', { format: 'png' });
-    const suffix = MOBILE ? '_m' : '';
+    const suffix = (MOBILE ? '_m' : '') + (DARK ? '_dark' : '');
     const out = path.join(SHOT_DIR, `${name}${suffix}.png`);
     fs.writeFileSync(out, Buffer.from(shot.data, 'base64'));
     console.log(`   shot: ${out} height=${h}`);
