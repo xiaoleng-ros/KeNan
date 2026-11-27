@@ -35,7 +35,8 @@ _old/avatars-png/
 2026-*/
 .trae-html-share-packages/
 
-# 部署产物（deploy/ 里手写脚本和配置要提交，打出来的包不进仓库）
+# 构建/部署产物（deploy/ 里手写脚本和配置要提交，产物不进仓库）
+dist/
 keNan-site.zip
 
 # 历史遗留的中间产物（旧管线脚本输出，已由 site/data/*.json 取代）

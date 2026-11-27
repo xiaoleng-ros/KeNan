@@ -4,6 +4,7 @@
   "private": true,
   "description": "名侦探柯南资料站（纯静态）",
   "scripts": {
+    "build": "node tools/build.js",
     "serve": "node site/serve.js",
     "test": "node tools/check_data.js && node tools/regress.js tools/test_ui.js",
     "test:ui": "node tools/regress.js tools/test_ui.js",
