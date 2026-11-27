@@ -27,16 +27,16 @@ node serve.js
 | 页面 | 文件 | 内容 | 数据量 |
 |---|---|---|---|
 | 首页 | `index.html` | 12 宫格导航 + 双栏资讯 + 精选条目 | 6 张资讯卡 |
-| 原作漫画 | `manga.html` | 按年份分组的话数表，含案件名 | 799 话 / 30 个年份 |
-| 电视动画 | `anime.html` | 集数表，可排序筛选 | 1194 集 |
-| 剧场版 | `movies.html` | 剧场版档案表 | 29 部 |
+| 原作漫画 | `manga.html` | 按年份分组的话数表，含案件名 | 1122 话 / 30 个年份 |
+| 电视动画 | `anime.html` | 集数表，可排序筛选 | 1196 集（TV 1186 + SPTV 10） |
+| 剧场版 | `movies.html` | 剧场版档案表 | 30 部 |
 | 角色名录 | `characters.html` | 44 个分组卡片，点击看详情 | 162 名角色 |
 | 音乐 | `music.html` | 主题曲 / 片尾曲 / 插曲等 | 167 首 |
 | 搜索 | `search.html` | 跨 5 个数据集统一检索，结果可深链定位 | — |
 | 关于 | `about.html` | 站点说明与数据统计 | — |
 | 404 | `404.html` | 自定义错误页，带返回入口 | — |
 
-**合计 2351 条真实条目**，全部来自原站 MediaWiki 内容，非虚构。
+**合计 2677 条真实条目**，全部来自原站 MediaWiki 内容，非虚构。
 
 ---
 
@@ -76,10 +76,10 @@ node serve.js
 │   ├── shoot.js                 # 渲染断言（默认不截图，--shot 才产出到临时目录）
 │   ├── check_icons.js           # 图片加载状态检查
 │   ├── check_pages.js           # 校验 9 个页面的骨架与 head 一致性
+│   ├── check_data.js            # 校验 data/*.json 字段完整性（防 rowspan 串列）
 │   ├── make_sitemap.js          # 生成 sitemap.xml（需 --base 正式域名）
 │   ├── test_ui.js               # 交互回归测试（45 条断言，失败退出码 1）
-│   ├── debug_layout.js          # 元素盒模型调试
-│   └── shrink_avatars.js        # 旧方案（该站未开放缩略图，已弃用）
+│   └── debug_layout.js          # 元素盒模型调试
 │
 └── deploy/                   # 部署
     ├── README.md              # 1Panel + OpenResty 部署步骤与排错表
@@ -87,8 +87,19 @@ node serve.js
     └── pack.js                # 打包 site/ 为 zip
 ```
 
-> `shots/`（截图）、`_old/`（旧半成品）、`keNan-site.zip`、`.workbuddy/`（本地记忆与浏览器 profile）
-> 都是过程产物，已在 `.gitignore` 中排除，不进仓库。
+> **仓库只保留运行所需内容**：`site/`（站点本体）、`tools/`（数据管线与验证）、
+> `deploy/`（部署脚本与配置）、根目录的文档与 `package.json`。
+>
+> 以下为过程产物，已在 `.gitignore` 中排除，可随时删除或重新生成：
+>
+> | 内容 | 说明 | 恢复方式 |
+> |---|---|---|
+> | `_old/` | 早期单文件管线的半成品与旧脚本 | 已废弃，无需恢复 |
+> | `.trae-html-share-packages/` | 9 个分享用 zip（每个都是整站副本，共 14.9MB） | 不需要，站点本身即完整 |
+> | `2026-*/` | 历史评审报告等一次性产物 | 结论已落地到代码 |
+> | `.trae/` / `.workbuddy/` | AI 工具的本地工作数据 | 自动生成 |
+> | `shots/` / `.screenshots/` | 截图验证产物 | `shoot.js --shot` 重新生成 |
+> | `keNan-site.zip` | 部署包 | `npm run pack` 重新生成 |
 
 ---
 
@@ -121,9 +132,9 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 
 | 本站数据 | 条目数 | 来源（柯南百科） | 本项目的改动 |
 |---|---|---|---|
-| 原作漫画 | 799 话 / 30 年 | [名侦探柯南原作漫画](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%8E%9F%E4%BD%9C%E6%BC%AB%E7%94%BB) | 解析 wikitable、展开 rowspan、剥离属性、提取案件名 |
-| 电视动画 | 1194 集 | [名侦探柯南电视动画](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E7%94%B5%E8%A7%86%E5%8A%A8%E7%94%BB) | 同上，补全 TV/SPTV 编号 |
-| 剧场版 | 29 部 | [名侦探柯南剧场版](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%89%A7%E5%9C%BA%E7%89%88) | 同上 |
+| 原作漫画 | 1122 话 / 30 年 | [名侦探柯南原作漫画](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%8E%9F%E4%BD%9C%E6%BC%AB%E7%94%BB) | 解析 wikitable、展开 rowspan、剥离属性、提取案件名 |
+| 电视动画 | 1196 集 | [名侦探柯南电视动画](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E7%94%B5%E8%A7%86%E5%8A%A8%E7%94%BB) | 同上，补全 TV/SPTV 编号 |
+| 剧场版 | 30 部 | [名侦探柯南剧场版](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E5%89%A7%E5%9C%BA%E7%89%88) | 同上 |
 | 角色名录 | 162 名 / 44 组 | [名侦探柯南角色](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E8%A7%92%E8%89%B2) | 解析 `{{角色}}` 模板为结构化字段 |
 | 音乐 | 167 首 | [名侦探柯南音乐](https://www.conanpedia.com/%E5%90%8D%E4%BE%A6%E6%8E%A2%E6%9F%AF%E5%8D%97%E9%9F%B3%E4%B9%90) | 解析 wikitable |
 
@@ -132,7 +143,7 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 
 **改动说明**：以上内容均经历了机器解析（表格结构 → JSON）、字段筛选与重新排版，
 与原站表格不再是逐字一致的形式。原站条目本身可能继续被修订，本仓库数据是
-2026-10 抓取的快照。
+2026-11 抓取的快照。
 
 ### 许可协议
 
@@ -180,10 +191,10 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 
 ### 已知数据边界
 
-- 漫画章节表覆盖 `File.1` – `File.1120`，2024 年起原作改用新编号体系，原站表格本身未收录
-- 剧场版共 29 部（`compilation` / `other` 分类原站为空）
+- 漫画章节表覆盖 `File.1` – `File.1121`，共 1122 话 / 342 个案件
+- 剧场版共 30 部（M1–M30，其中 M30 尚未上映；`compilation` / `other` 分类原站为空）
 - 头像 159 张全部获取成功，其余角色在原站未配图
-- 数据为 2026-10 的快照，原站后续修订不会同步
+- 数据为 2026-11 的快照，原站后续修订不会同步
 
 ---
 
@@ -207,12 +218,34 @@ cp -r site/* /opt/1panel/www/sites/keNan/index/
 仓库根目录的 `package.json` 提供了快捷命令（站点本身不依赖 npm）：
 
 ```bash
-npm test              # 等价于 node tools/regress.js tools/test_ui.js
+npm test              # 数据校验 + 45 条交互断言（等价于下面两条）
+npm run check:data    # 仅校验 site/data/*.json 的字段完整性
+npm run test:ui       # 仅跑无头浏览器交互断言
 npm run check:pages   # 校验 9 个页面的骨架与 head 一致性
 npm run serve         # 本地预览（4173）
 npm run pack          # 打包 site/ 为 zip
 npm run sitemap -- --base https://你的域名/
 ```
+
+### 数据校验（`tools/check_data.js`）
+
+不需要浏览器，直接读 `site/data/*.json` 做字段形状断言，失败退出码 1。
+
+它存在的理由是一次真实事故：剧场版表格大量使用 `rowspan` 合并单元格，
+旧的 `expandRowspans` 在每个 `rowspan` 上少填充了一行，导致**后续行的导演 / 编剧 / 时长 /
+观影人次整体前移一列**，页面上会静默显示成「编剧：100分钟」。这种错位不会报错、
+不会白屏，只有肉眼盯着表格才能发现。
+
+现在校验器会检查：
+
+- 剧场版 `writer` 不能是 `100分钟` / `247万` 这类值，`duration` 不能是人次/票房 —— 串列即报警
+- 已上映剧场版的时长、人次、票房必须齐全且格式正确
+- 剧场版 `M1..Mn`、动画 `TV1..TVn`、漫画案件号必须连续，缺号说明有整行被跳过
+- 漫画每一话的中日文标题、日期、案件名非空（旧 bug 会让错位的行被 `raw.length < 7` 整行丢弃）
+- 音乐「演唱者」列不能拿到「对应剧集」列的内容
+- 角色中文名、日文名、分组非空且不重名
+
+回归方式：`npm run check:data`，或跑完整的 `npm test`。
 
 ```bash
 # 一站式回归（自动起服务 + 无头浏览器，跑完自动关闭）
@@ -243,7 +276,7 @@ cd site && node serve.js                    # 起服务
 node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器）
 ```
 
-当前状态：9 个页面（含 404）骨架校验 0 问题，链接完整性 `bad: []`，
+当前状态：9 个页面（含 404）骨架校验 0 问题，数据校验 0 异常，链接完整性 `bad: []`，
 45 条交互断言全通过，桌面（1440px）与移动（420px）双端布局验证通过。
 
 > `sitemap.xml` 需要正式域名才能生成（避免写入错误链接），
@@ -252,17 +285,71 @@ node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器�
 
 ---
 
-## 视觉还原要点
+## 视觉设计：Apple iOS「Liquid Glass」
 
-对照原站 hibiki 皮肤的关键特征：
+界面按 **Apple Human Interface Guidelines（2026 版）** 重构，设计语言取自
+iOS 的 Liquid Glass 材质体系，而非单纯模仿外观。
 
-- 固定全屏背景图（`bg.jpg`，原站 `Hibiki-bg.jpg`）
-- 半透明白色卡片 `--bg-card: rgba(252,252,252,.62)`，配毛玻璃模糊
-- 卡片标题下方彩色下划线（`u-green` / `u-yellow` / `u-red` / `u-blue` / `u-purple` / `u-black`）
-- 首页 12 宫格导航，上方圆形柯南头像
-- 首页资讯双栏布局 `grid-template-columns: 1fr 268px`
-- 左侧固定侧栏 + sticky 顶部导航 + 悬停下拉菜单
-- 响应式断点 1100px / 900px，移动端汉堡菜单 + 单列堆叠
+### 依据的规范条目
+
+| HIG 章节 | 落地方式 |
+|---|---|
+| **Materials** | 功能层（导航栏、下拉菜单、弹窗、移动端菜单）用 Liquid Glass —— `backdrop-filter` + 饱和度增强 + 边缘高光；内容层（卡片、表格、角色网格）用 **standard material**（半透明纯色，不实时模糊） |
+| **Typography** | iOS `Large` 档 Dynamic Type：Large Title 34 / Title 1 28 / Title 2 22 / Title 3 20 / Body 17 / Callout 16 / Subhead 15 / Footnote 13 / Caption 12·11 |
+| **Color** | Label / Fill 各 4 级振动（vibrancy）+ 分隔线；亮暗双套语义色 |
+| **Layout** | `viewport-fit=cover` + `env(safe-area-inset-*)`；尺寸类切换：窄屏侧栏折叠为横排胶囊 |
+| **Motion** | 弹簧曲线 `cubic-bezier(.34,1.4,.64,1)`；按压缩放、悬停抬起；`prefers-reduced-motion` 下全部降级为淡入 |
+| **Accessibility** | 键盘焦点环、44×44pt 触控区、正文对比度 ≥ 4.5:1 |
+
+### 为什么要区分 Liquid Glass 与 standard material
+
+HIG 明确要求 Liquid Glass **只用于功能层**："including it in the content layer can
+result in unnecessary complexity and a confusing visual hierarchy."
+
+第一版实现把所有卡片都套了 `backdrop-filter`（共 34 处），结果：
+
+- 162 张角色卡 + 上千行表格容器同时实时模糊，滚动时逐帧重算
+- 交互测试出现**间歇性失败**（页面 3.2s 内未完成首屏绘制，输入事件早于渲染）
+
+改为「功能层 7 处玻璃 + 内容层纯色」后，测试连续 3 次 45/45 全绿。
+这既是规范要求，也是性能优化。
+
+### 对比度修正
+
+HIG 要求文字满足无障碍对比度。校验时发现两处系统性不达标：
+
+- iOS 系统蓝 `#007aff` 作**文字**时在白底只有 **4.02:1**（低于 AA 的 4.5）
+  → 拆成 `--brand-fill`（填充，保持 `#007aff`）与 `--brand: #0062cc`（文字，5.80:1）
+- 5 个分类徽章（蓝/橙/绿/红/紫）配白字，对比度仅 **2.20–4.13:1**，**全部不合格**
+  → 保留色相、压低明度到 4.82–7.68:1；深色模式改用 tint 风格（淡色底 + 亮色字）
+
+### 设计令牌
+
+`site/css/main.css` 的 `:root` 是唯一色值来源：
+
+- 系统色：`--sys-blue/green/orange/red/purple/...`（iOS 标准调色板）
+- 语义色：`--label` ~ `--label-4`、`--fill-1` ~ `--fill-4`、`--separator`
+- 材质：`--glass-tint`（功能层）、`--content-tint`（内容层）、`--sidebar-tint`
+- 圆角：`--r-xs` ~ `--r-2xl` 按 iOS 连续曲率
+- 动效：`--ease-spring` / `--ease-out` / `--dur-fast|base|slow`
+- 字体：`--fs-*` 对应 Dynamic Type 各级
+
+### 配套的交互细节
+
+- 导航栏滚动后加深（scroll edge effect），用 `requestAnimationFrame` 节流
+- 下拉菜单弹簧出场 + `transform-origin` 从触发点展开
+- 角色卡悬停抬起、按下回弹（`scale(.985)`）
+- 角色详情弹窗：`sheetIn` 从下方弹起，支持**下滑关闭**（带阻尼，超过 120px 触发）
+- 移动端点外部自动收起菜单
+- 表格吸顶表头、`tabular-nums` 数字对齐、自定义细滚动条
+
+### 截图命令
+
+```bash
+node tools/regress.js tools/shoot.js index --shot           # 亮色
+node tools/regress.js tools/shoot.js index --shot --dark    # 深色
+node tools/regress.js tools/shoot.js index --mobile --shot  # 移动端
+```
 
 品牌标识全部改用「江户川柯南」头像，与角色页头像同源：
 
@@ -305,7 +392,7 @@ node tools/with_browser.js tools/test_ui.js # 跑脚本（自动开关浏览器�
 ### 免责
 
 - 本站内容为技术演示，不保证准确性、完整性或时效性
-- 数据为 2026-10 抓取的快照，原站后续修订不会同步
+- 数据为 2026-11 抓取的快照，原站后续修订不会同步
 - 如权利方认为本站使用不妥，请通过 GitHub Issues 或
   `1873048956@qq.com` 联系，将立即移除相关内容
 - 本站作者不承担因使用本站内容而产生的任何责任
