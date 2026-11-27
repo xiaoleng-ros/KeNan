@@ -11,6 +11,17 @@
   const deepCode = new URLSearchParams(location.search).get('code') || '';
   const state = { q: deepCode, kind: 'all' };
 
+  /**
+   * 把源站的「无此信息」写法统一成表格占位符 ——。
+   * 源站用 '/' 或空串表示该项不存在（如 MT23 无编曲），
+   * 直接渲染会在表格里露出一个孤立的斜杠。
+   */
+  const EMPTY_RE = /^[\s/／—–-]*$/;
+  function cell(v) {
+    const s = String(v == null ? '' : v).trim();
+    return EMPTY_RE.test(s) ? '—' : s;
+  }
+
   // 分类：片头曲 OP / 片尾曲 ED / 剧场版主题 MT / 其他
   function kindOf(code) {
     const c = code.toUpperCase();
@@ -77,11 +88,11 @@
         <tr>
           <td class="num"><b>${mark(s.code, q)}</b></td>
           <td>${mark(s.titleJa, q)}${s.titleZh ? `<div class="ja">${mark(s.titleZh, q)}</div>` : ''}</td>
-          <td>${mark(s.artist, q)}</td>
-          <td>${s.lyricist ? mark(s.lyricist, q) : '—'}</td>
-          <td>${s.composer ? mark(s.composer, q) : '—'}</td>
-          <td>${s.arranger ? mark(s.arranger, q) : '—'}</td>
-          <td>${mark(s.range, q)}</td>
+          <td>${mark(cell(s.artist), q)}</td>
+          <td>${mark(cell(s.lyricist), q)}</td>
+          <td>${mark(cell(s.composer), q)}</td>
+          <td>${mark(cell(s.arranger), q)}</td>
+          <td>${mark(cell(s.range), q)}</td>
         </tr>`).join('') || '<tr><td colspan="7" style="color:#8d949f">没有匹配的记录。</td></tr>';
 
       cnt.textContent = `共 ${items.length} 首`;

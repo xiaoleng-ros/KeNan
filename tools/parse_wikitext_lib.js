@@ -19,14 +19,20 @@ function plain(s) {
   if (!s) return '';
   let t = s.replace(/\r/g, '');
 
-  // 剥离模板：{{jp|文本}} / {{tt|提示|显示}} 一律保留最后一个参数（显示文本）
+  // 导航图模板只承载页面顶部装饰图，正文里没有任何可读内容，
+  // 它的参数（如 "剧场版.png"）落进正文会变成简介开头的乱码。
+  t = t.replace(/\{\{\s*导航图\s*\|[^{}]*\}\}/gi, '');
+
+  // 剥离模板：{{jp|文本}} / {{tt|原文|提示}} 一律保留正文文本
   for (let i = 0; i < 10; i++) {
     const before = t;
     t = t.replace(/\{\{([^{}|]*)\|([^{}]*)\}\}/g, (all, name, args) => {
       const parts = args.split('|');
-      const last = parts[parts.length - 1];
-      // {{tt|说明|显示}} 取显示；{{示亡号|X}} 这类单层无名模板取内容
-      return parts.length > 1 ? last : last;
+      // {{tt|原文|提示文本}}：原文（第 1 个参数）才是正文显示内容，
+      // 提示文本只在鼠标悬停时出现，取它会把页面文字替换成注释。
+      if (/^\s*tt\s*$/i.test(name)) return parts[0];
+      // 其余模板（{{jp|日本語}}、{{示亡号|[[古内一成]]}}、{{Lang|ja|…}}）取最后一个参数
+      return parts[parts.length - 1];
     });
     t = t.replace(/\{\{([^{}|]*)\}\}/g, '$1');
     if (t === before) break;
@@ -161,23 +167,30 @@ function rowspanOf(cell) {
  */
 function expandRowspans(rows) {
   const out = [];
-  // pending[col] = 剩余占用行数；pendingVal[col] = 原始单元格
+  // pending[col] = 该列在「后续」还需要填充的行数（不含当前行）
   const pending = [];
   for (const row of rows) {
     const res = [];
+    // 只有本行真正消费掉的既有合并列才递减；
+    // 本行新开的 rowspan 覆盖的是后续 rs-1 行，必须保持原值直到下一行开始。
+    const consumed = [];
     let col = 0;
     for (const cell of row) {
-      while (pending[col] > 0) { res.push('__SPAN__'); col++; }
+      while (pending[col] > 0) { res.push('__SPAN__'); consumed.push(col); col++; }
       res.push(cell);
       const rs = rowspanOf(cell);
-      if (rs > 1) { pending[col] = rs - 1; pendingVal[col] = cell; }
+      pending[col] = rs > 1 ? rs - 1 : 0;
       col++;
     }
-    const maxLen = Math.max(res.length, ...pending.map((v, i) => (v > 0 ? i + 1 : 0)), 0);
-    while (res.length < maxLen) res.push('');
+    // 行内单元格用完后，尾部仍有未消费的合并列：补齐占位
+    for (let i = col; i < pending.length; i++) {
+      if (pending[i] > 0 && res.length <= i) {
+        while (res.length <= i) res.push('__SPAN__');
+        consumed.push(i);
+      }
+    }
     out.push(res);
-    // 递减
-    for (let i = 0; i < pending.length; i++) if (pending[i] > 0) pending[i]--;
+    for (const i of consumed) pending[i]--;
   }
   return out;
 }
@@ -201,6 +214,18 @@ const pendingVal = [];
 
 /** 先清属性再取纯文本 */
 function pc(s) { return plain(cleanCell(s)); }
+
+/**
+ * 从条目开头提取简介正文。
+ * 只保留第一个二级标题之前的段落：后续小节标题（==常规剧场版== 之类）
+ * 混进简介会变成一串裸露的等号，且那段话本来就不属于词条导语。
+ */
+function cleanIntro(src) {
+  const first = plain(src || '');
+  // ==标题== / ===标题=== 之前的部分才是导语
+  const body = first.split(/==+/)[0].trim();
+  return body || first.trim();
+}
 
 /** 判断是否为表头行（含 ! 标记） */
 function isHeaderRow(cells) {
@@ -257,7 +282,7 @@ async function parseMovies() {
   grab('===编译剧场版===', 'compilation');
   grab('===其他剧场版===', 'other');
 
-  out.intro = plain(wt.slice(0, secIdx < 0 ? 900 : secIdx)).replace(/^导航图\s*/, '');
+  out.intro = cleanIntro(wt.slice(0, secIdx < 0 ? 900 : secIdx));
   return out;
 }
 
@@ -311,7 +336,7 @@ async function parseManga() {
   }
   const introEnd = wt.indexOf('==章节列表==');
   return {
-    intro: plain(wt.slice(0, introEnd < 0 ? 1500 : introEnd)).replace(/^导航图\s*/, ''),
+    intro: cleanIntro(wt.slice(0, introEnd < 0 ? 1500 : introEnd)),
     years: years.map(y => y.title),
     rows,
   };
@@ -445,4 +470,4 @@ async function parseMusic() {
   return out;
 }
 
-module.exports={parseTable,expandRowspans,fillSpans,getWikitext,plain,cleanCell,pc,linkTarget,extractTables,rowspanOf};
+module.exports={parseTable,expandRowspans,fillSpans,getWikitext,plain,cleanCell,pc,linkTarget,extractTables,rowspanOf,isHeaderRow,cleanIntro};

@@ -5,7 +5,9 @@
   "description": "名侦探柯南资料站（纯静态）",
   "scripts": {
     "serve": "node site/serve.js",
-    "test": "node tools/regress.js tools/test_ui.js",
+    "test": "node tools/check_data.js && node tools/regress.js tools/test_ui.js",
+    "test:ui": "node tools/regress.js tools/test_ui.js",
+    "check:data": "node tools/check_data.js",
     "check:pages": "node tools/check_pages.js",
     "pack": "node deploy/pack.js",
     "sitemap": "node tools/make_sitemap.js"
